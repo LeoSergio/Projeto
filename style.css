@@ -1,0 +1,181 @@
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./moom-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/assets/bg-mobile-light.jpg);
+
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./sun.svg);
+}
+
+* {
+  /*Espaços internos=Por padrão o navegador determina suas proprias medidas de tamanho,com essas codigos fica tudo personalizavel, isso se chama reset do CSS*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*
+  "background-image: url(./assets/bg-mobile-dark\ \(1080x1920\).jpg);"
+  
+  Add imagem de fundo no site
+  
+  "background-repeat: no-repeat;"
+  
+  Essas imagens ficam de formas repetidas no site e é por isso dessa propriedade (no-repeat) Não repetir
+  
+  "background-position: top center;"
+  
+  Aqui é a posição q por padrão fica no left,com essa propriedade ela vai para o centro e o 'top' é usado para igualar o eixo y com o eixo x  pq o center deixa só o eixo x no centro e o 'top' iguala
+  
+  "background-size: cover;"
+  
+  cover=cobrir
+  geralmente usado para preencher espaços em brancos,usado para preenchimento de telas pequenas*/
+             /*Alinhamneto do background*/
+  background: var(--bg-url) no-repeat top center/cover;
+  /*Agrupamento do background chamado também de atalho
+  ex:background: color image repeat position/size...*/
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+/*#= seletor do id aqui no CSS*/
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 24px;
+}
+/*No CSS geralmente não usa o height/altura, pq a altura geralmente segue o conteudo da page*/
+
+/*Uma maneira de centralizar elementos=text-align*/
+
+#profile {
+/*Alinhamneto de texto*/  
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  margin: auto;
+  display: block;
+}
+#profile p {
+  font-weight: 500; /*Largura das letras*/
+  line-height: 24px; /*altura das linhas*/
+  margin-top: 8px; /*margem do topo/cima*/
+}
+
+#switch{
+  position:relative;
+  width: 64px;
+  margin: 4px auto;
+
+}
+
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  /*Alinhamneto do button*/
+position:absolute;
+top:50%;
+left:0;
+z-index:1;
+transform: translateY(-50%);
+
+}
+
+.light #switch button{
+right:0;
+left:initial;
+}
+
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+ul {
+  list-style: none; /*estilos de lista e serve para retirar o marcador das ul/ol*/
+  display: flex; /*flexibilizaçao da tela serve para tipo ativar a manipulaçao dos elementos*/
+  flex-direction: column; /*ordena as coisas em coluna*/
+  gap: 16px; /*espaçamento entre um elemento e outro*/
+  padding: 24px 0px;
+}
+ul li a {
+         /*Alinhamento de itens*/  
+  display: flex;
+  align-items: center; /*Alinhar itens eixo x*/
+  justify-content: center; /*Alinhar itens eixo y*/
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*Arredondamento de bordas*/
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop: blur(4px);
+
+  text-decoration: none; /*Decoração de texto*/
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0px;
+  font-size: 24px; /*tamanho da fonte*/
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+footer {
+  /*Alinamneto de text*/
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
