@@ -27,24 +27,6 @@
 }
 
 body {
-  /*
-  "background-image: url(./assets/bg-mobile-dark\ \(1080x1920\).jpg);"
-  
-  Add imagem de fundo no site
-  
-  "background-repeat: no-repeat;"
-  
-  Essas imagens ficam de formas repetidas no site e é por isso dessa propriedade (no-repeat) Não repetir
-  
-  "background-position: top center;"
-  
-  Aqui é a posição q por padrão fica no left,com essa propriedade ela vai para o centro e o 'top' é usado para igualar o eixo y com o eixo x  pq o center deixa só o eixo x no centro e o 'top' iguala
-  
-  "background-size: cover;"
-  
-  cover=cobrir
-  geralmente usado para preencher espaços em brancos,usado para preenchimento de telas pequenas*/
-             /*Alinhamneto do background*/
   background: var(--bg-url) no-repeat top center/cover;
   height:100vh;
   /*Agrupamento do background chamado também de atalho
