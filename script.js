@@ -13,7 +13,7 @@ function toggleMode() {
     img.setAttribute("src", "assets/assets/perfil-light.png")
   } else {
     //se tiver sem o light mode, manter a foto normal
-    img.setAttribute("src", "assets/assets/perfil-light.png")
+    img.setAttribute("src", "assets/assets/perfil-dark.png")
   }
   /*oque acontceu aí em cima? Mudança de imagem , quando tiver no light mode ser uma foto e quando tiver no dark mode outra foto
 setAttribute=Modificar atributo ou personalizar*/

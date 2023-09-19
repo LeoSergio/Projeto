@@ -28,7 +28,7 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
-  height:100vh;
+  height:100%;
   /*Agrupamento do background chamado também de atalho
   ex:background: color image repeat position/size...*/
 }
@@ -171,7 +171,8 @@ footer {
 Serve para mudar a imagem de fundo de acordo com o dispositivo*/
 @media (min-width:700px){
   :root{
-    --bg-url: url(assets/assets/bg-desktop.jpg)
+    --bg-url: url(assets/assets/bg-mobile.jpg);
+
   }
   .light{
     --bg-url: url(assets/assets/bg-desktop-light.jpg)
