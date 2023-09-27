@@ -1,5 +1,6 @@
 @charset "UTF-8";
-/*
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
 *{
   padding:0px;
   margin:0px;
@@ -7,60 +8,67 @@
 }
 
 :root{
-  --font1:Arial, Helvetica, sans-serif;
-  --background: rgb(53, 73, 73);
-  --background-image:url(images/monitor-removebg-1000px-removebg-preview.png);
+  --font-padrao:Arial, Helvetica, sans-serif;
+  --font-perfil:'Sriracha', cursive;
+  --background: #fff;
+  --background-container:rgb(109, 107, 107);
+  --background-perfil:url(images/perfil-dark\ \(copy\).png);
 }
 
 
 body{
-    font-family: var(--font1);
-    background-color: var(--background);
+    font-family: var(--font-padrao);
 }
-
-.container{
-  width:100%;
-  max-width: 900px;
-  margin:auto; 
-  height:100vh;
-  background: var(--background-image) center no-repeat ;
-  background-size: cover;
-  border:1px solid red;
-  
-}
-.container span{
-  border:1px solid red;
-  max-width:400px;
-  margin:auto;
+div.container{
   display: flex;
-  display:block;
-  margin-top: 14%;
-  justify-content: left;
-
-
+  align-items: center;
+  background-color:var(--background-container) ;
+  height:40vh;
+  width:100%; 
+  
 }
-.container span p{
-  color:#fff;
+/*personalização da caixa imagem*/
+div.imagem{
+  background-color: aqua;
+  padding:3px;
+  width:50%;
   position: relative;
-  text-align: left;
   
+}
+.imagem span{
+  display: flex;
+  background-image:var(--background-perfil);
+  border-radius: 50%;
+  background-size: cover;
+  border:1px solid rgb(255, 255, 255);
+  width:200px;
+  height:200px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-60%,-50%);
+}
+/*Personalização da caixa do nome do perfil*/
+div.name{
+  border:4px solid aqua;
+  display:flex;
+  display: block;
+  padding:10px;
+  width:50%;
+}
+div.name h1{
+  font-family: var(--font-perfil);
+  color:aqua;
+  font-size: 3em;
+}
+div.name p{
+  color:rgb(0, 0, 0);
+  font-family: var(--font-perfil);
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 50%;
+  text-align: center;
 }
 
 
 
-@media(max-width:600px){
-  .container{
-    background-image: url(images/download-removebg-mobile.png);
-  }
-  .container span{
-    margin-top:23%;
-    width:200px;
-    height: 420px;
-    
-  }
-  .container span p{
-  color:black;
-  line-height: 0.9rem;
-  }
-  
-}
