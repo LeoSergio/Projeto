@@ -1,74 +1,116 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 
-*{
-  padding:0px;
-  margin:0px;
+* {
+  padding: 0px;
+  margin: 0px;
   box-sizing: border-box;
 }
 
-:root{
-  --font-padrao:Arial, Helvetica, sans-serif;
-  --font-perfil:'Sriracha', cursive;
-  --background: #fff;
-  --background-container:rgb(109, 107, 107);
-  --background-perfil:url(images/perfil-dark\ \(copy\).png);
+:root {
+  --font-padrao: Arial, Helvetica, sans-serif;
+  --font-perfil: "Sriracha", cursive;
+  --color-h1: #fff;
+  --color-p: #b4bec9;
+  --line-color: #159a9c;
+  --background: #b4bec9;
+  --background-container: #002333;
+  --background-perfil: url(images/perfil-dark\ \(copy\).png);
 }
 
-
-body{
-    font-family: var(--font-padrao);
+body {
+  font-family: var(--font-padrao);
+  background-color: var(--background);
 }
-div.container{
+div.header {
   display: flex;
   align-items: center;
-  background-color:var(--background-container) ;
-  height:40vh;
-  width:100%; 
-  
+  background-color: var(--background-container);
+  height: 40vh;
+  width: 100%;
 }
 /*personalização da caixa imagem*/
-div.imagem{
-  background-color: aqua;
-  padding:3px;
-  width:50%;
+div.imagem {
+  background-color: var(--line-color);
+  padding: 3px;
+  width: 50%;
   position: relative;
-  
 }
-.imagem span{
+/* Imagem de perfil por cima da linha*/
+.imagem span {
   display: flex;
-  background-image:var(--background-perfil);
+  background-image: var(--background-perfil);
   border-radius: 50%;
   background-size: cover;
-  border:1px solid rgb(255, 255, 255);
-  width:200px;
-  height:200px;
+  border: 1px solid var(--line-color);
+  width: 200px;
+  height: 200px;
   position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-60%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
 }
 /*Personalização da caixa do nome do perfil*/
-div.name{
-  border:4px solid aqua;
-  display:flex;
+div.name {
+  border: 4px solid var(--line-color);
+  display: flex;
   display: block;
-  padding:10px;
-  width:50%;
+  width: 50%;
 }
-div.name h1{
+div.name h1 {
   font-family: var(--font-perfil);
-  color:aqua;
-  font-size: 3em;
+  color: var(--color-h1);
+  font-size: 2.5em;
+  padding: 0 10px;
+  margin: auto;
 }
-div.name p{
-  color:rgb(0, 0, 0);
+div.name p {
+  color: var(--color-p);
   font-family: var(--font-perfil);
   font-size: 1.5em;
   font-weight: bold;
-  margin-right: 50%;
+  padding: 0 10px;
+}
+div.conteudo {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+section.one {
+  width: 50%;
+  margin: 1rem;
+  padding: 10px;
+}
+section.one h2 {
   text-align: center;
+  font-size: 1.5em;
+}
+section.one h2:hover {
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+section.one p {
+  font-size: 1.1rem;
+  font-family: var(--font-padrao);
 }
 
-
-
+section.two {
+  width: 30%;
+  margin: 1.5rem;
+  padding: 10px;
+}
+section.two h2 {
+  font-size: 1.7rem;
+}
+section.two ul {
+  list-style: none;
+  padding-top: 10px;
+}
+section.two a {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: black;
+}
+section.two a:hover {
+  text-decoration: underline;
+}
