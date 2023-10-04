@@ -95,10 +95,9 @@ section.one p {
   font-size: 1.1em;
   font-family: var(--font-padrao);
 }
-section.one a{
+section.one a {
   text-decoration: underline;
-  color:black;
-
+  color: black;
 }
 section.two {
   margin: 1.5rem;
@@ -111,8 +110,8 @@ section.two h2 {
 section.two ul {
   list-style: none;
 }
-section.two li{
-  padding:0.5rem;
+section.two li {
+  padding: 0.5rem;
 }
 section.two a {
   font-size: 1.3em;
@@ -122,25 +121,22 @@ section.two a {
 section.two a:hover {
   text-decoration: underline;
 }
-.button{
-  display:flex;
+.button {
+  display: flex;
   align-items: center;
   justify-content: center;
-  
-  
 }
-.button button{
+.button button {
   margin: 0.2rem 0;
   background-color: #4ceaec;
   cursor: pointer;
-  
 }
-.button a{
-  display:block;
-  width:60px;
-  height:30px;
+.button a {
+  display: block;
+  width: 60px;
+  height: 30px;
   text-align: center;
-  color:black;
+  color: black;
   text-decoration: none;
   padding: 10px 0;
 }
@@ -169,8 +165,8 @@ footer a:hover {
 
 @media (max-width: 656px) {
   :root {
-  --background-perfil: url(images/perfil-200px.png);
-}
+    --background-perfil: url(images/perfil-200px.png);
+  }
   div.header {
     height: 300px;
   }
@@ -243,7 +239,7 @@ footer a:hover {
   div.name p {
     font-size: 1.2em;
   }
-  
+
   section.one {
     width: 100%;
     margin: auto;
