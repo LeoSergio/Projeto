@@ -14,7 +14,7 @@
   --color-p: #b4bec9;
   --line-color: #159a9c;
   --background: #b4bec9;
-  --background-container: #002333;
+  --background-header: #002333;
   --background-perfil: url(images/perfil-200px.png);
 }
 
@@ -26,8 +26,8 @@ body {
 div.header {
   display: flex;
   align-items: center;
-  background-color: var(--background-container);
-  height: 41vh;
+  background-color: var(--background-header);
+  height: 250px;
   width: 100%;
 }
 /*personalização da caixa imagem*/
@@ -111,6 +111,9 @@ section.two h2 {
 section.two ul {
   list-style: none;
 }
+section.two li{
+  padding:0.5rem;
+}
 section.two a {
   font-size: 1.3em;
   text-decoration: none;
@@ -165,9 +168,11 @@ footer a:hover {
 }
 
 @media (max-width: 656px) {
+  :root {
+  --background-perfil: url(images/perfil-200px.png);
+}
   div.header {
-    height: 49vh;
-    width: 100%;
+    height: 300px;
   }
   div.imagem {
     padding: 0;
