@@ -57,6 +57,8 @@ body * {
   width: 112px;
   margin: auto;
   display: block;
+  border: 1px solid black ;
+  border-radius: 50%;
 }
 #profile p {
   font-weight: 500; /*Largura das letras*/
