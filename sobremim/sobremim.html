@@ -60,19 +60,34 @@
             apenas deseja trocar ideias, fique à vontade para entrar em contato
             comigo. Adoraria compartilhar conhecimentos, experiências e
             colaborar em projetos empolgantes.
-          </p>
-          <h2>
-            Hobies:
-          </h2>
-         <ul>
-          <li>Música</li>
-          <li>Esporte</li>
-          <li>Games/series e filmes</li>
-          <li>Natureza</li>
-         </ul>
+          </p>  
         </article>
       </section>
-
+    <aside id="hobbie">
+        <h2>Hobbies:</h2>          
+          <ol>
+<li>Games/Series e Filmes.</li>
+             <div class="list">
+               <li>Músicas:</li>
+        <ul type="square">
+          <li>Pop Rock</li>
+          <li>Gospel</li>
+        </ul>
+             </div>
+     
+      <li onclick="clickList()">Esportes:</li>
+        <div class="list">
+          <ul type="square">
+            <li>Futebol</li>
+            <li>Raquetebol</li>
+            <li>Pedal</li>
+            <li>Montanhismo</li>
+          </ul>
+        </div>
+      
+      
+          </ol>
+          </aside>
       <section class="two">
         <h2>Contate-me:</h2>
         <ul>
@@ -108,5 +123,16 @@
     </footer>
 
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <script>
+      function clickList(){
+        if(list.style.display == 'block'){
+          list.style.display = 'none';
+        }else{
+          list.style.display = 'block';
+        }
+        
+      }
+    </script>
   </body>
 </html>
