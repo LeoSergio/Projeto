@@ -99,29 +99,39 @@ section.one a {
   text-decoration: underline;
   color: black;
 }
-#hobbie{
-  display:flex;
+#hobbie {
+  display: flex;
   display: block;
-  width:250px;
-  margin: auto;  
+  width: 300px;
+  margin: auto;
 }
-#hobbie > ol{
+#hobbie > ol {
   border: 1px solid;
   text-align: center;
   padding: 1rem;
   columns: 2;
+  list-style: none;
 }
-#hobbie  li{
+#hobbie li {
   margin: 0.2rem;
+  padding: 10px 0;
 }
-ul > li{
+#hobbie ul > li {
   text-align: left;
-  
 }
- .list ul{
+#icon {
+  width: 25px;
+  height: 22px;
+  color: #060469;
+}
+#acesso2 {
+  cursor: pointer;
   display: none;
-  padding:0.5rem;
 }
+#hobbie span {
+  cursor: pointer;
+}
+
 section.two {
   margin: 1.5rem;
   padding: 10px;

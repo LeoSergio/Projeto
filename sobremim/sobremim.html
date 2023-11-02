@@ -42,8 +42,8 @@
             >, além de estar atualmente concluindo um curso no canal do YouTube
             <a href="https://www.youtube.com/@CursoemVideo" target="_blank"
               >"CursoemVideo"</a
-            >. Estou empolgado por completar o módulo 4 de 5, onde me aprofundei em
-            <abbr title="Hyper Text Makup Language">HTML5</abbr> e
+            >. Estou empolgado por completar o módulo 4 de 5, onde me aprofundei
+            em <abbr title="Hyper Text Makup Language">HTML5</abbr> e
             <abbr title="Cascading Style Sheets">CSS3</abbr>. Também dei meus
             primeiros passos no mundo do JavaScript, compreendendo sua
             importância fundamental no desenvolvimento web.
@@ -60,48 +60,47 @@
             apenas deseja trocar ideias, fique à vontade para entrar em contato
             comigo. Adoraria compartilhar conhecimentos, experiências e
             colaborar em projetos empolgantes.
-          </p>  
+          </p>
         </article>
       </section>
-    <aside id="hobbie">
-        <h2>Hobbies:</h2>          
-          <ol>
-<li>Games/Series e Filmes.</li>
-             <div class="list">
-               <li>Músicas:</li>
-        <ul type="square">
-          <li>Pop Rock</li>
-          <li>Gospel</li>
-        </ul>
-             </div>
-     
-      <li onclick="clickList()">Esportes:</li>
-        <div class="list">
-          <ul type="square">
-            <li>Futebol</li>
-            <li>Raquetebol</li>
-            <li>Pedal</li>
-            <li>Montanhismo</li>
-          </ul>
-        </div>
-      
-      
-          </ol>
-          </aside>
+      <aside id="hobbie">
+        <h2>Hobbies:</h2>
+        <ol>
+          <li>
+    <ion-icon name="logo-game-controller-a" id="icon"></ion-icon> Games/Filmes e Series.</li>
+
+          <li>
+    <ion-icon name="musical-notes" id="icon"></ion-icon> Músicas
+          </li>
+
+          <li onclick="clickMenu()"><span>
+     <ion-icon name="football" id="icon" ></ion-icon> Esportes:</span>
+          </li>
+
+          <div id="acesso2">
+            <ul type="square">
+              <li>Futebol</li>
+              <li>Raquetebol</li>
+              <li>Pedal</li>
+              <li>Montanhismo</li>
+            </ul>
+          </div>
+        </ol>
+      </aside>
       <section class="two">
         <h2>Contate-me:</h2>
         <ul>
           <li>
-            <a href="https://bit.ly/48n2nEk" target="_blank"
-              ><ion-icon name="logo-whatsapp"></ion-icon> 84 9 9954-7697</a
-            >
+  <a href="https://bit.ly/48n2nEk" target="_blank">
+    <ion-icon name="logo-whatsapp"></ion-icon> 84 9 9954-7697</a>
+            
           </li>
 
           <li>
             <a
               href="https://instagram.com/leandro.sergio.583?igshid=NzZlODBkYWE4Ng=="
-              ><ion-icon name="logo-Instagram"> </ion-icon>leo.sergio.553</a
-            >
+              ><ion-icon name="logo-Instagram"> </ion-icon>leo.sergio.553</a>
+            
           </li>
         </ul>
       </section>
@@ -125,13 +124,12 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
     <script>
-      function clickList(){
-        if(list.style.display == 'block'){
-          list.style.display = 'none';
-        }else{
-          list.style.display = 'block';
+      function clickMenu() {
+        if (acesso2.style.display == "block") {
+          acesso2.style.display = "none"
+        } else {
+          acesso2.style.display = "block"
         }
-        
       }
     </script>
   </body>
