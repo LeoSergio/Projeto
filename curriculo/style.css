@@ -1,9 +1,66 @@
 @charset "UTF-8";
 
 :root{
-  --font-color-h1-h2: #038C73;
-  --menu-lateral:#014034;
+  --font-color-h1-h2: #ffffff;
+  --menu-lateral:#02735E;
   --font-color-p:black;
   --strong:black;
   --stars: #36BFB1;
+  --icon-color:black;
+}
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+ul{
+  list-style: none;
+}
+.menuLateral{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--menu-lateral);
+    width:65%;
+    padding:1rem;
+    
+     
+}
+.perfil{
+  display:flex;
+  width:151px;
+  height:151px;
+  background-image: url(imagens/perfil-150px.png);
+  border:1px solid transparent;
+  border-radius: 50%; 
+}
+.contact{
+  text-align: left;
+  padding: 1rem 0;
+  
+}
+.contact h2{
+  color:var(--font-color-h1-h2);
+  text-align: center;
+  padding:0.5rem 0;
+}
+#icon{
+  padding:0 0.5rem;
+  font-size: 1.4em;
+  color:var(--icon-color);
+}
+.contact ul{
+  font-size: 1.1em;
+  padding:0.5rem;
+}
+.contact li{
+   padding:0.3rem 0; 
+}
+.soft-skills{
+  padding:1rem;
+  border:1px solid red;
 }
