@@ -2,8 +2,8 @@
 
 :root{
   --font-color-h1-h2: #ffffff;
-  --menu-lateral:#02735E;
-  --font-color-p:black;
+  --menu-lateral:#174940;
+  --font-color-p:rgb(255, 255, 255);
   --strong:black;
   --stars: #ffffff;
   --icon-color:black;
@@ -20,13 +20,47 @@ a{
 ul{
   list-style: none;
 }
+/*Cabeçalho*/
+.header {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding:0.5rem 0;
+  font-weight: bold;
+  background-color: rgb(100, 128, 128);
+  
+}
+.header ul{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9em;
+  padding-top: 0.5rem;
+  gap:0.8rem;
+}
+
+#icon-menu{
+  border:1px solid rgb(0, 0, 0);
+  width:33px;
+  height:33px;
+  border-radius: 50%;
+}
+/*Cabeçalho*/
+
+/*Menu-lateral*/
 .menuLateral{
+    display:none ; 
+}
+.container{
     display:flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-color: var(--menu-lateral);
-    width:65%;
-    padding:1rem; 
+    width: 75%;
+    padding:1rem;
 }
 .perfil{
   display:flex;
@@ -49,9 +83,10 @@ ul{
   padding:0.5rem 0;
 }
 #icon{
-  padding:0 0.5rem;
+
   font-size: 1.4em;
   color:var(--icon-color);
+  cursor: pointer;
 }
 .contact ul{
   font-size: 1.1em;
@@ -76,6 +111,13 @@ ul{
   color:var(--stars);
 }
 footer{
-  border:1px solid red;
   padding: 5px;
 }
+footer p{
+  font-size: 1.1em;
+  color:var(--font-color-p);
+}
+footer strong{
+  color:var(--strong);
+}
+/*Menu-lateral*/

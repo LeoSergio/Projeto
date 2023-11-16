@@ -20,8 +20,24 @@
 
 
 <body>
+<header>
+  <div class="header">
+    <ion-icon name="menu" id="icon-menu" onclick="menu()"></ion-icon>
+    <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+
+      <li><a href="../portfolio/portfolio.html">Portifolio</a></li>
+
+      <li><a href="../sobremim/sobremim.html">Sobre Mim</a></li>
+    </ul>
+  </nav>
+  </div>
+  
+</header>
+
     <aside>
-      <div class="menuLateral">
+      <div class="menuLateral" id="menuLateral">
         <div class="container">
           <div class="perfil"> 
            
@@ -71,14 +87,7 @@
            </p> 
           </div><!--Soft Skills-->
          <footer>
-          <h3>Observações:</h3>
-          <p>tudo aqui é com base na minha experiencia</p>
-
-            <p><strong>Ferramentas utilizadas nesse projeto.</strong>
-              <li>HTML5 CSS3 e JavaScript</li>
-              <li>Adobe Color</li>
-            </p>
-                <p>observações sobre as soft skills.</p> <br>
+         
                 <p>Site Criado por <strong>Leandro S. da Silva</strong></p>
 
             </p>
@@ -113,7 +122,15 @@
     </section>
 </main> 
     
-
+<script>
+  function menu(){
+    if(menuLateral.style.display == 'block'){
+      menuLateral.style.display = 'none';
+    }else{
+      menuLateral.style.display = 'block';
+    }
+  }
+</script>
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>
