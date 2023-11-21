@@ -2,14 +2,14 @@
 
 :root{
         /*Menu-lateral config*/
-  --font-color-h1-h2: rgb(43, 230, 43);
+  --font-color-h1-h2: rgb(56, 196, 56);
   --menu-lateral:#030202;
   --font-color-p:rgb(43, 230, 43);
   --stars: #ffffff;
         /*main-config*/
-  --header:rgb(6, 167, 6);
+  --header:rgb(59, 138, 59);
   --body-color: #b1acac;
-  --font-color-main:rgb(30, 104, 30);
+  --font-color-main:rgb(18, 109, 18);
   --strong:black;
   --icon-color-main:rgb(3, 3, 3);
 }
@@ -32,7 +32,7 @@ ul{
 /*Cabeçalho*/
 .header {
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
@@ -53,6 +53,7 @@ ul{
   flex-direction: row;
 }
 .header a{
+  text-decoration: none;
   color:#000000;
 }
 #icon-header{
@@ -84,8 +85,8 @@ ul{
   display:flex;
   width:151px;
   height:151px;
-  background-image: url(imagens/perfil-150px.png);
-  border:1px solid greenyellow;
+  background-image: url(imagens/perfil.png);
+  border:2px solid greenyellow;
   border-radius: 50%; 
 }
 .contact{
