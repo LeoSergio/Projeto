@@ -22,15 +22,16 @@
 <body>
 <header>
   <div class="header">
-    <ion-icon name="menu" id="icon-menu" onclick="menu()"></ion-icon>
     <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
+      <ul>
+        <ion-icon name="menu" id="icon-menu" onclick="menu()"></ion-icon>
 
-      <li><a href="../portfolio/portfolio.html">Portifolio</a></li>
+        <li><a href="../index.html"><ion-icon name="home" id="icon-header" ></ion-icon>Home</a></li>
 
-      <li><a href="../sobremim/sobremim.html">Sobre Mim</a></li>
-    </ul>
+        <li><a href="../portfolio/portfolio.html"><ion-icon name="briefcase" id="icon-header"></ion-icon>Portifolio</a></li>
+
+        <li><a href="../sobremim/sobremim.html"><ion-icon name="person" id="icon-header"></ion-icon>Sobre</a></li>
+      </ul>
   </nav>
   </div>
   
@@ -86,40 +87,72 @@
             <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
            </p> 
           </div><!--Soft Skills-->
-         <footer>
-         
-                <p>Site Criado por <strong>Leandro S. da Silva</strong></p>
-
-            </p>
-          </footer>
         </div> <!--Container-->
       </div> <!--Menu Lateral-->
     </aside>
 <main>
+    <div class="main-container">
+      <section>
+        <h1 id="title">Leandro S. da Silva</h1>
+            <p>Desenvolvedor Front-End</p>
+      </section>
+    
     <section>
-      <h1>Leandro S. da Silva</h1>
-          <p>Desenvolvedor Front-End</p>
+      <h2 id="subtitle">Informações Pessoais</h2>
+        <ul>
+          <li><strong>Leandro Sérgio da Silva</strong></li>
+
+          <li><ion-icon name="pin" id="icon"></ion-icon>Jardim de Piranhas/RN</li>
+
+          <li><a href="#"><ion-icon name="call" id="icon"></ion-icon>Telefone (84) 9 9954-7697</a></li>
+
+          <li><a href="mailto:leosergio.183@gmail.com"><ion-icon name="mail" id="icon"></ion-icon>leosergio.583@gmail.com</a></li>
+        </ul>
+
+      <a href="../sobremim/sobremim.html" target="_blank">Saiba mais sobre mim</a>
+    </section>
+    <section>
+      <h2 id="subtitle">Objetivo Profissional:</h2>
+      <p>
+        Busco minha primeira oportunidade como Desenvolvedor <strong>Front-End</strong>, com interesse em <strong>Back-End</strong>. Comprometido, inovador e pronto para contribuir com meu conhecimento em <strong>HTML5, CSS3, JavaScript</strong>, buscando crescimento profissional em um ambiente dinâmico.
+      </p>
+    </section>
+    <section>
+      <h2 id="subtitle"><span>Educação:</span></h2>
+      <p>
+       Ensino Médio Completo
+      </p>
+    </section>
+    <section>
+      <h2 id="subtitle">Projetos Pessoais:</h2>
+      <ul id="one">
+        <li><a href="../portfolio/portfolio.html" target="_blank">Freelancer Para Vendas de Salgados</a></li>
+        <li><a href="../portfolio/portfolio.html" target="_blank">Tela de Login</a></li>  
+      </ul>
     </section>
 
     <section>
-      <h2>Sobre</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus commodi eaque beatae. Saepe animi quos voluptates, magni officiis id ad natus, provident molestias dolores quibusdam nam, voluptatum quisquam molestiae dolor!<br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae numquam aut facilis! Doloribus, illum reprehenderit cumque architecto aperiam veritatis enim quia ad, suscipit cupiditate porro id aut ullam labore quasi.
-      </p>
-      <a href="../sobremim/sobremim.html" target="_blank">Saiba mais aqui</a>
+     <h2 id="subtitle">Experiência Profissional:</h2>
+      <p>Trabalhei por cinco anos em atendimento e vendas, liderando equipes na superação de desafios pré e pós-pandemia. Habilidades em gestão, resolução de problemas e trabalho em equipe, buscando transição para a área de programação front-end.</p>
     </section>
     <section>
-      <h2>Educação</h2>
-      <p>
-        Cursos que eu fiz e estou fazendo no momento. com ano de realização de cada.
-      </p>
+      <h2 id="subtitle">Certificações:</h2>
+        <ul id="one">
+          <li>Excell basico ao avançado pleo SENAI dividido em 3 partes de 40 horas cada</li>
+          <li>certificado da Rocketseat</li>
+        </ul>
     </section>
     <section>
-      <h2>Carreira</h2>
+      <h2 id="subtitle">Cursos Relevantes</h2>
       <p>
-        Falar da experiencia de trabalho e que estar em transição de carreira.
+        <ul id="one">
+          <li>Curso da Rocketseat</li>
+          <li>Curso de HTML5 e CSS3 no canal do YouTube "CursoemVideo"</li>
+          <li>BootCamp da DIO</li>
+        </ul>
       </p>
     </section>
+  </div>
 </main> 
     
 <script>
