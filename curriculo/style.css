@@ -41,14 +41,19 @@ ul{
   background-color: var(--header);
   
 }
+.header nav{
+  display:flex;
+  margin:auto;
+}
 .header ul{
   display:flex;
+  padding: 0.5rem;
   font-size: 0.9em;
   gap:0.8rem;
 }
 .header li{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
 }
@@ -58,10 +63,12 @@ ul{
 }
 #icon-header{
   font-size: 1.3em;
+  
 }
 
-#icon-menu{
+.header #icon-menu{
   border:1px solid rgb(0, 0, 0);
+  margin-left:0.2rem;
   width:33px;
   height:33px;
   border-radius: 50%;
@@ -70,7 +77,8 @@ ul{
 
 /*Menu-lateral*/
 .menuLateral{
-    display:none ; 
+  height:100%;
+  display:none;
 }
 .container{ 
     display:flex;
@@ -78,7 +86,7 @@ ul{
     flex-direction: column;
     align-items: center;
     background-color: var(--menu-lateral);
-    width: 75%;
+    width: 70%;
     padding:1rem;
 }
 .perfil{
@@ -148,12 +156,13 @@ footer strong{
 /*Menu-lateral*/
 
 /*Conteudo Principal*/
+
 main .main-container{
   display:flex;
   justify-content: center;
   align-items: left;
   flex-direction: column;
-  margin:1rem;
+  
   padding:0.5rem;
   background-color: #ffffff;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
