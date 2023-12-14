@@ -20,7 +20,7 @@
 -->
 
 
-<body>
+<body onresize="screen()">
 <header>
   <div class="header">
     <ion-icon name="menu" id="icon-menu" onclick="menu()"></ion-icon>
@@ -158,8 +158,15 @@
 </main> 
     
 <script>
-  
+  function screen(){
+    if(innerWidth>=600){
+      menuLateral.style.display = 'block'
+    }else{
+      menuLateral.style.display = 'none'
+    }
+  }
   function menu(){
+    let px = innerWidth;
     if(menuLateral.style.display == 'block'){
       menuLateral.style.display = 'none';
     }else{
