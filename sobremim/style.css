@@ -24,24 +24,26 @@ body {
 }
 
 div.header {
-  border:1px solid red;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   background-color: var(--background-header);
   width: 100%;
+  padding:1rem 0;
 }
 /*personalização da caixa imagem*/
 div.imagem {
   display:flex;
-  margin:auto;
-  background-color: var(--line-color);
+  justify-content: center;
+  flex-direction: column;
   padding: 3px;
-  border-radius:50%;
+  
 }
 /* Imagem de perfil por cima da linha*/
 .imagem span {
+  display: flex;
+  margin:auto;
   background-image: var(--background-perfil);
   border-radius: 50%;
   background-size: cover;
@@ -53,18 +55,19 @@ div.imagem {
 
 /*Personalização da caixa do nome do perfil*/
 div.name {
-  border-top: 4px solid var(--line-color);
-  border-bottom: 4px solid var(--line-color);
-  border-left: 4px solid var(--line-color);
   display: flex;
-  
+  flex-direction: column;
+  flex-wrap: wrap;
+  border:3px solid var(--line-color); 
+  margin-top:1rem; 
 }
 div.name h1 {
+  display:flex;
   font-family: var(--font-perfil);
   color: var(--color-h1);
   font-size: 2.5em;
   padding: 0 10px;
-  margin: auto;
+  
 }
 div.name p {
   color: var(--color-p);
