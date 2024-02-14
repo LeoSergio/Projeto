@@ -11,10 +11,10 @@
   --font-padrao: Arial, Helvetica, sans-serif;
   --font-perfil: "Sriracha", cursive;
   --color-h1: #fff;
-  --color-p: #b4bec9;
+  --color-p: #c7d4de;
   --line-color: #159a9c;
   --background: #b4bec9;
-  --background-header: #002333;
+  --background-header: url(images/background\ profile.jpg);
   --background-perfil: url(images/perfil-200px.png);
 }
 
@@ -28,7 +28,9 @@ div.header {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  background-color: var(--background-header);
+  background: var(--background-header);
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   padding:1rem 0;
 }
