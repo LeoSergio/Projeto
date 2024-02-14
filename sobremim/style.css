@@ -202,26 +202,19 @@ footer a:hover {
   :root {
     --background-perfil: url(images/perfil-200px.png);
   }
-  div.header {
-    height: 300px;
-  }
+  
   div.imagem {
-    padding: 0;
-    position: relative;
-    left: 28%;
-    top: -16%;
+    display:flex;
+    margin: auto; 
   }
 
   div.name {
     border: 3px solid var(--line-color);
-    position: relative;
-    left: -25%;
-    top: 35%;
   }
   div.name h1 {
     text-align: center;
     font-size: 1.5em;
-    margin: auto;
+
   }
   div.name p {
     font-size: 1.5em;
@@ -249,23 +242,13 @@ footer a:hover {
 }
 @media (max-width: 440px) {
   div.header {
-    height: 42vh;
     width: 100%;
-  }
-  div.imagem {
-    padding: 0;
-    position: relative;
-    left: 30%;
-    top: -15%;
   }
   .imagem span {
     width: 150px;
     height: 150px;
   }
   div.name {
-    position: relative;
-    left: -25%;
-    top: 29%;
     border: none;
   }
   div.name h1 {
@@ -280,13 +263,6 @@ footer a:hover {
     margin: auto;
   }
 
-  section.two {
-    margin: auto;
-    position: relative;
-    width: 60%;
-    left: -20%;
-    top: 28%;
-  }
   section.two h2 {
     font-size: 1.5em;
   }
