@@ -203,8 +203,11 @@ footer a:hover {
 @media (max-width: 656px) {
   :root {
     --background-perfil: url(images/perfil-200px.png);
+    --background-header: url(images/background\ profile.jpg);
   }
-  
+  .header{
+    background: var(--background-header);
+  }
   div.imagem {
     display:flex;
     margin: auto; 
