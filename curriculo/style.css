@@ -76,17 +76,30 @@ ul{
 /*Cabeçalho*/
 
 /*Menu-lateral*/
-.menuLateral{
-  height:100%;
-  display:none;
+.menuLateral {
+  position: fixed;
+  left: -250px; /* Mantém fora da tela */
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--menu-lateral);
+  color: white;
+  transition: left 0.3s ease-in-out;
+  padding: 1rem;
 }
+
+.menuLateral.active {
+  left: 0; /* Move para dentro da tela quando ativo */
+  display: block;
+}
+
 .container{ 
     display:flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     background-color: var(--menu-lateral);
-    width: 70%;
+    width: 85%;
     padding:1rem;
 }
 .perfil{

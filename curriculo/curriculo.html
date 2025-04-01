@@ -7,23 +7,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style685px.css">
 </head>
-<!--
-<style>
-  body{
-    background-color: rgb(53, 73, 73);
-  }
-  h1{
-    color: #fff;
-    text-align: center;
-  }
-</style>
--->
-
 
 <body onresize="screen()">
 <header>
   <div class="header">
-    <ion-icon name="menu" id="icon-menu" onclick="menu()"></ion-icon>
+    <ion-icon name="menu" id="icon-menu" onclick="toggleMenu()"></ion-icon>
     <nav>
       <ul>
         
@@ -39,60 +27,50 @@
   
 </header>
 
-<main>
+
     <aside>
-      <div class="menuLateral" id="menuLateral">
-        <div class="container">
-          <div class="perfil"> 
-           
-        <!--
-<p>
-              lembre-se de tentar colocar uma mensagem de boas vindas em formato de log com Js.
-            </p>
-        -->     
-          </div><!--Perfil--> 
+  <div class="menuLateral" id="menuLateral">
+    <div class="container">
+      <div class="perfil">    
+      </div><!--Perfil--> 
 
       <div class="contact">
         <h2>Contate-me:</h2>
-    <nav>
-      <ul>
-      <li><a href="https://bit.ly/45W4bCS" target="_blank"><ion-icon name="logo-whatsapp" id="icon"></ion-icon>Whatsaap</a></li>
-      
-      <li><a href="https://www.instagram.com/leandro.sergio.583/?igshid=NzZlODBkYWE4Ng%3D%3D" target="_blank"><ion-icon name="logo-instagram" id="icon"></ion-icon>Instagram</a></li>
-      
-      <li><a href="mailto:leosergio.583@gmail.com"target="_blank"><ion-icon name="mail" id="icon" ></ion-icon>E-mail</a></li>
-      
-      <li><a href="https://github.com/LeoSergio"target="_blank"><ion-icon name="logo-github" id="icon"></ion-icon>Github</a></li>
+        <nav>
+          <ul>
+            <li><a href="https://bit.ly/45W4bCS" target="_blank"><ion-icon name="logo-whatsapp" id="icon"></ion-icon>Whatsapp</a></li>
+            <li><a href="https://www.instagram.com/leandro.sergio.583/?igshid=NzZlODBkYWE4Ng%3D%3D" target="_blank"><ion-icon name="logo-instagram" id="icon"></ion-icon>Instagram</a></li>
+            <li><a href="mailto:leosergio.583@gmail.com"target="_blank"><ion-icon name="mail" id="icon" ></ion-icon>E-mail</a></li>
+            <li><a href="https://github.com/LeoSergio"target="_blank"><ion-icon name="logo-github" id="icon"></ion-icon>Github</a></li>
+            <li><a href="#"target="_blank"><ion-icon name="logo-linkedin" id="icon"></ion-icon>Linkedin</a></li>
+          </ul>
+        </nav> 
+      </div><!--contact-->
 
-      <li><a href="#"target="_blank"><ion-icon name="logo-linkedin" id="icon"></ion-icon>Linkedin</a></li>
-      </ul>
-    </nav> 
+      <div class="soft-skills">
+        <h2>Habilidades</h2>
+        <p>
+          Proatividade <br>
+          <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
+        </p>
+        <p>
+          trabalho em Equipe <br>
+          <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
+        </p>
+        <p>
+          Produtividade <br>
+          <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
+        </p>
+        <p>
+          Comunicação <br>
+          <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
+        </p> 
+      </div><!--Soft Skills-->
+    </div> <!--Container-->
+  </div> <!--Menu Lateral-->
+</aside>
 
-          </div><!--contact-->
-
-          <div class="soft-skills">
-           <h2>Habilidades</h2>
-            <p>
-            Proatividade <br>
-            <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-           </p>
-           <p>
-            trabalho em Equipe <br>
-            <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-           </p>
-           <p>
-            Produtividade <br>
-            <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-           </p>
-           <p>
-            Comunicação <br>
-            <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-           </p> 
-          </div><!--Soft Skills-->
-        </div> <!--Container-->
-      </div> <!--Menu Lateral-->
-    </aside>
-
+<main>
     <div class="main-container">
       <section>
         <h1 id="title">Leandro S. da Silva</h1>
@@ -104,7 +82,7 @@
         <ul>
           <li><strong>Leandro Sérgio da Silva</strong></li>
 
-          <li><ion-icon name="pin" id="icon"></ion-icon>Jardim de Piranhas/RN</li>
+          <li><ion-icon name="pin" id="icon"></ion-icon>Caico/RN</li>
 
           <li><a href="https://bit.ly/45W4bCS"><ion-icon name="call" id="icon"></ion-icon>Telefone (84) 9 9619-7364</a></li>
 
@@ -125,15 +103,12 @@
        * Ensino Médio Completo
       </p>
       <p>
-        * Cursando Ensino Superior em Matemática
+        * Cursando Ensino Superior em Sistema de Informação
       </p> 
     </section>
     <section>
       <h2 id="subtitle">Projetos Pessoais:</h2>
       <ul id="one">
-      <!--
-<li><a href="https://leosergio.github.io/Ecommerce-books/" target="_blank">Freelancer Ecommerce</a></li>
-      --> 
         <li><a href="https://leosergio.github.io/projeto-login/" target="_blank">Tela de Login</a></li> 
         <li><a href="https://leosergio.github.io/controle-de-financa/"target="_blank">Sistema de Controle Financeiro</a></li> 
       </ul>
@@ -141,13 +116,13 @@
 
     <section>
      <h2 id="subtitle">Experiência Profissional:</h2>
-      <p>Trabalhei por cinco anos em atendimento e vendas, liderando equipes na superação de desafios pré e pós-pandemia. Habilidades em gestão, resolução de problemas e trabalho em equipe, buscando transição para a área de programação front-end.</p>
+      <p>Trabalhei por seis anos em atendimento e vendas, liderando equipes na superação de desafios pré e pós-pandemia. Habilidades em gestão, resolução de problemas e trabalho em equipe.</p>
     </section>
     <section>
       <h2 id="subtitle">Certificações:</h2>
         <ul id="one">
           <li><a href="#">Excell basico e avançado(SENAI)</a></li>
-          <li><a href="certificações/certificate-rocketseat.pdf" target="_blank">certificado da Rocketseat</a></li>
+          <li><a href="certificações/certificate-rocketseat.pdf" target="_blank">Certificado da Rocketseat</a></li>
         </ul>
     </section>
     <section>
@@ -164,22 +139,33 @@
 </main> 
     
 <script>
-  function screen(){
-    if(innerWidth>=600){
-      menuLateral.style.display = 'block'
-    }else{
-      menuLateral.style.display = 'none'
-    }
-  }
-  function menu(){
-    let px = innerWidth;
-    if(menuLateral.style.display == 'block'){
-      menuLateral.style.display = 'none';
-    }else{
-      menuLateral.style.display = 'block';
-    }
-  }
+    function toggleMenu() {
+  const menu = document.querySelector('.menuLateral');
+  const icon = document.getElementById('icon-menu');
+
+  menu.classList.toggle('active'); // Alterna a classe active para mostrar ou esconder o menu
   
+  // Troca o ícone entre "menu" e "close"
+  if (menu.classList.contains('active')) {
+    icon.name = 'close'; // Troca para o ícone de fechamento (X)
+  } else {
+    icon.name = 'menu'; // Troca de volta para o ícone de menu (hamburguer)
+  }
+}
+
+// Fecha o menu se clicar fora dele
+document.addEventListener('click', function(event) {
+  const menu = document.querySelector('.menuLateral');
+  const icon = document.getElementById('icon-menu');
+  const menuContainer = document.querySelector('.container');
+
+  if (!menuContainer.contains(event.target) && !icon.contains(event.target)) {
+    menu.classList.remove('active'); // Fecha o menu
+    icon.name = 'menu'; // Altera para o ícone de menu (hamburguer)
+  }
+});
+
+
 </script>
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
