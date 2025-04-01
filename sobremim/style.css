@@ -1,283 +1,138 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+/* Importando uma fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-:root {
-  --font-padrao: Arial, Helvetica, sans-serif;
-  --font-perfil: "Sriracha", cursive;
-  --color-h1: #fff;
-  --color-p: #c7d4de;
-  --line-color: #159a9c;
-  --background: #b4bec9;
-  --background-header: url(images/background\ profile.jpg);
-  --background-perfil: url(images/perfil-200px.png);
-}
-
+/* Corpo da página */
 body {
-  font-family: var(--font-padrao);
-  background-color: var(--background);
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
-div.header {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  background: var(--background-header);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  padding:1rem 0;
-}
-/*personalização da caixa imagem*/
-div.imagem {
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 3px;
-  
-}
-/* Imagem de perfil por cima da linha*/
-.imagem span {
-  display: flex;
-  margin:auto;
-  background-image: var(--background-perfil);
-  border-radius: 50%;
-  background-size: cover;
-  border: 1px solid var(--line-color);
-  width: 200px;
-  height: 200px;
-  
+/* Cabeçalho */
+.header {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/*Personalização da caixa do nome do perfil*/
-div.name {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  border:3px solid var(--line-color); 
-  margin-top:1rem; 
+.name h1 {
+  font-size: 2rem;
 }
-div.name h1 {
-  display:flex;
-  font-family: var(--font-perfil);
-  color: var(--color-h1);
-  font-size: 2.5em;
-  padding: 0 10px;
-  
+
+.name p {
+  font-size: 1.2rem;
+  font-weight: 300;
 }
-div.name p {
-  color: var(--color-p);
-  font-family: var(--font-perfil);
-  font-size: 1.5em;
+
+/* Seção principal */
+.conteudo {
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  border-left: 5px solid #00b4d8;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #0077b6;
   font-weight: bold;
-  padding: 0 10px;
-}
-div.conteudo {
-  width: 600px;
-  margin: auto;
-  background-color: #fff;
-  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.336);
-}
-section.one {
-  margin-top: 1rem;
-  padding: 10px;
-}
-section.one h2 {
-  text-align: center;
-  font-size: 1.5em;
-  margin: 1rem 0 0.5rem;
-}
-section.one p {
-  line-height: 1.3rem;
-  text-indent: 0.5rem;
-  font-size: 1.1em;
-  font-family: var(--font-padrao);
-}
-section.one a {
-  text-decoration: underline;
-  color: black;
-}
-#hobbie {
-  display: flex;
-  display: block;
-  width: 300px;
-  margin: auto;
-}
-#hobbie > ol {
-  border: 1px solid;
-  text-align: center;
-  padding: 1rem;
-  columns: 2;
-  list-style: none;
-}
-#hobbie li {
-  margin: 0.2rem;
-  padding: 10px 0;
-}
-#hobbie ul > li {
-  text-align: left;
-}
-#icon {
-  width: 25px;
-  height: 22px;
-  color: #060469;
-}
-#acesso2 {
-  cursor: pointer;
-  display: none;
-}
-#hobbie span {
-  cursor: pointer;
 }
 
-section.two {
-  margin: 1.5rem;
-  padding: 10px;
+a:hover {
+  color: #005b96;
 }
-section.two h2 {
-  font-size: 1.7em;
-  padding: 1rem 0;
+
+/* Lista de hobbies */
+aside#hobbie {
+  background: #e3f2fd;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
 }
+
+aside#hobbie h2 {
+  color: #0077b6;
+}
+
+#hobbie li {
+  list-style: none;
+  font-size: 1rem;
+  padding: 5px 0;
+}
+
+/* Contato */
 section.two ul {
   list-style: none;
-}
-section.two li {
-  padding: 0.5rem;
-}
-section.two a {
-  font-size: 1.3em;
-  text-decoration: none;
-  color: black;
-}
-section.two a:hover {
-  text-decoration: underline;
-}
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.button button {
-  margin: 0.2rem 0;
-  background-color: #4ceaec;
-  cursor: pointer;
-}
-.button a {
-  display: block;
-  width: 60px;
-  height: 30px;
-  text-align: center;
-  color: black;
-  text-decoration: none;
   padding: 10px 0;
 }
-footer {
-  margin-top: 2%;
-  padding: 6px;
-}
-footer p {
+
+section.two ul li {
+  background: #0077b6;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
   text-align: center;
-  color: black;
-  font-size: 1.2em;
-  font-family: var(--font-perfil);
-}
-footer span {
-  font-size: 1.2em;
-  color: red;
-}
-footer a {
-  text-decoration: none;
-  color: black;
-}
-footer a:hover {
-  text-decoration: underline;
-  color: red;
 }
 
-@media (max-width: 656px) {
-  :root {
-    --background-perfil: url(images/perfil-200px.png);
-    --background-header: url(images/background\ profile.jpg);
-  }
-  .header{
-    background: var(--background-header);
-  }
-  div.imagem {
-    display:flex;
-    margin: auto; 
-  }
-
-  div.name {
-    border: 3px solid var(--line-color);
-  }
-  div.name h1 {
-    text-align: center;
-    font-size: 1.5em;
-
-  }
-  div.name p {
-    font-size: 1.5em;
-  }
-  div.conteudo {
-    margin: 1.5rem auto;
-    width: 100%;
-  }
-  section.one {
-    margin-top: 1rem;
-    padding: 10px;
-  }
-  section.one h2 {
-    text-align: center;
-    font-size: 1.5em;
-  }
-  section.one p {
-    text-indent: 0.5rem;
-    font-size: 1.1em;
-  }
-  section.two {
-    margin: auto;
-    padding: 1rem;
-  }
+section.two ul li a {
+  color: white;
 }
-@media (max-width: 440px) {
-  div.header {
-    width: 100%;
-  }
-  .imagem span {
-    width: 150px;
-    height: 150px;
-  }
-  div.name {
-    border: none;
-  }
-  div.name h1 {
-    font-size: 1.2em;
-  }
-  div.name p {
-    font-size: 1.2em;
-  }
-  
-  section.one {
-    width: 100%;
-    margin: auto;
-  }
-  section.two h2 {
-    font-size: 1.5em;
-  }
-  section.two a {
-    font-size: 1.1rem;
-    padding: 1rem 0;
-  }
-  footer p {
-    font-size: 1.1em;
-  }
-  footer span {
-    font-size: 1.1em;
-  }
+
+section.two ul li:hover {
+  background: #005b96;
+  transition: 0.3s;
+}
+
+/* Botão de voltar */
+.button button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  margin: 20px auto;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button button:hover {
+  background: #005b96;
+  transition: 0.3s;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0077b6;
+  color: white;
+  margin-top: 20px;
+}
+footer a{
+  color: white;
+}
+footer a:hover{
+  color:rgb(0, 0, 0);
 }
