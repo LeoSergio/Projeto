@@ -99,7 +99,7 @@ ul{
     flex-direction: column;
     align-items: center;
     background-color: var(--menu-lateral);
-    width: 85%;
+    width: 82%;
     padding:1rem;
 }
 .perfil{
