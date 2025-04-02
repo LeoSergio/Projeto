@@ -108,20 +108,24 @@ section.two ul li:hover {
   display: block;
   width: 50px;
   height: 50px;
-  background: #0077b6;
+  background: transparent;
   color: white;
   border: none;
   border-radius: 50%;
   margin: 20px auto;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #0077b6;
 }
 
 .button button:hover {
-  background: #005b96;
+  background: #99c8e8;
   transition: 0.3s;
 }
-
+button .button a{
+  color:black;
+  border: 1px solid red;
+}
 /* Rodapé */
 footer {
   text-align: center;
