@@ -73,24 +73,65 @@ ul{
   height:33px;
   border-radius: 50%;
 }
-/*Cabeçalho*/
 
 /*Menu-lateral*/
-.menuLateral {
-  position: fixed;
-  left: -250px; /* Mantém fora da tela */
-  top: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: var(--menu-lateral);
-  color: white;
-  transition: left 0.3s ease-in-out;
+main {
+  display: flex;
+  justify-content: center; /* Centraliza o conjunto menu + conteúdo */
   padding: 1rem;
 }
+.container-principal {
+  display: flex; /* Deixa o menu e o conteúdo lado a lado */
+  align-items: flex-start; /* Alinha os elementos no topo */
+}
+.menuLateral #close{
+  display:none;
+}
+.menuLateral {
+  width: 250px; /* Largura fixa */
+  background-color: var(--menu-lateral);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; 
+  height:100vh;
+  
+}
 
-.menuLateral.active {
-  left: 0; /* Move para dentro da tela quando ativo */
-  display: block;
+.main-container {
+  display:flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
+}
+ .main-container #title{
+  font-size: 1.6em;
+  font-weight: bolder;
+  padding-top: 1rem;
+  color:var(--font-color-main);
+  
+}
+.main-container #subtitle{
+  font-size: 1.3em;
+  color:var(--font-color-main);
+  padding:0.8rem 0;
+  border-bottom: 2px solid;
+}
+.main-container p{
+  font-size: 1em;
+  line-height: 1.1em;
+  text-indent: 0.5em;
+  padding:0.5rem;
+}
+.main-container ul#one{
+  list-style-type: disc;
+  padding:0 1rem;
+}
+.main-container ul li{
+  padding:0.5rem 0;
 }
 
 .container{ 
@@ -101,6 +142,8 @@ ul{
     background-color: var(--menu-lateral);
     width: 82%;
     padding:1rem;
+    
+    
 }
 .perfil{
   display:flex;
@@ -165,44 +208,4 @@ footer p{
 }
 footer strong{
   color:var(--strong);
-}
-/*Menu-lateral*/
-
-/*Conteudo Principal*/
-
-main .main-container{
-  display:flex;
-  justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  
-  padding:0.5rem;
-  background-color: #ffffff;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
-}
-main .main-container #title{
-  font-size: 1.6em;
-  font-weight: bolder;
-  padding-top: 1rem;
-  color:var(--font-color-main);
-  
-}
-main .main-container #subtitle{
-  font-size: 1.3em;
-  color:var(--font-color-main);
-  padding:0.8rem 0;
-  border-bottom: 2px solid;
-}
-main .main-container p{
-  font-size: 1em;
-  line-height: 1.1em;
-  text-indent: 0.5em;
-  padding:0.5rem;
-}
-main .main-container ul#one{
-  list-style-type: disc;
-  padding:0 1rem;
-}
-main .main-container ul li{
-  padding:0.5rem 0;
 }
