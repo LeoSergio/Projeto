@@ -28,7 +28,6 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
-  height:100%;
   /*Agrupamento do background chamado também de atalho
   ex:background: color image repeat position/size...*/
 }
