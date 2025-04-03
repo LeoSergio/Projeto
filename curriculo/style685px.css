@@ -27,6 +27,7 @@ main .main-container{
 @media print{
   body{
     background-color: transparent;
+    padding:0;
   }
   .header{
     display:none;
