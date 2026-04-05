@@ -1,104 +1,633 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre Mim</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="header">
-      <div class="imagem">
-        <span> </span>
-        <div class="name">
-        <h1>Leandro Sérgio</h1> <br>
-        <p>Desenvolvedor e Analista de Dados</p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Mim · Leandro Sergio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #1a1a2e;
+      --ink-soft: #4a4a6a;
+      --ink-muted: #8888aa;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --line: #e8e8f0;
+      --bg: #f8f8fc;
+      --white: #ffffff;
+      --sidebar: #1a1a2e;
+      --sidebar-accent: #3b82f6;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 12px rgba(0,0,0,.06);
+    }
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all .2s;
+    }
+    nav a:hover { background: var(--accent-light); color: var(--accent); }
+    nav .sep { color: var(--line); font-size: 18px; user-select: none; }
+    nav .active { color: var(--accent); background: var(--accent-light); }
+
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      background: var(--sidebar);
+      position: relative;
+      overflow: hidden;
+      padding: 72px 40px 80px;
+      text-align: center;
+    }
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,.25) 0%, transparent 70%);
+      top: -150px; right: -100px;
+      pointer-events: none;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .hero-avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--sidebar-accent);
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .hero-banner h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+    .hero-banner .role {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--sidebar-accent);
+      margin-bottom: 20px;
+    }
+    .hero-banner .tagline {
+      font-size: 16px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .hl-primary { background: var(--sidebar-accent); color: #fff; }
+    .hl-primary:hover { opacity: .85; transform: translateY(-2px); }
+    .hl-outline { background: transparent; color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.2); }
+    .hl-outline:hover { border-color: rgba(255,255,255,.5); color: #fff; transform: translateY(-2px); }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      max-width: 960px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 40px;
+      border: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--ink);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .ct-icon {
+      width: 36px; height: 36px;
+      background: var(--accent-light);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Bio paragraphs */
+    .bio-block p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .bio-block p:last-child { margin-bottom: 0; }
+    .bio-block strong { color: var(--ink); font-weight: 600; }
+
+    /* Values grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .value-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      transition: all .2s;
+    }
+    .value-item:hover { border-color: var(--accent); background: var(--accent-light); }
+    .value-item .vi-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .value-item h3 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+    .value-item p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+
+    /* Journey timeline */
+    .journey-item {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .journey-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 44px;
+      bottom: -14px;
+      width: 2px;
+      background: var(--line);
+    }
+    .journey-item:last-child { margin-bottom: 0; }
+    .ji-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .ji-body { padding-top: 6px; }
+    .ji-year { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-bottom: 3px; font-family: monospace; }
+    .ji-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .ji-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+
+    /* Hobbies */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .hobby-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 14px;
+      text-align: center;
+      transition: all .2s;
+      cursor: default;
+    }
+    .hobby-item:hover { border-color: var(--accent); background: var(--accent-light); transform: translateY(-3px); }
+    .hobby-item .hi-icon { font-size: 28px; display: block; margin-bottom: 8px; }
+    .hobby-item h3 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .hobby-item p { font-size: 11px; color: var(--ink-muted); }
+
+    /* ── SIDEBAR WIDGETS ── */
+    .widget {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      margin-bottom: 20px;
+    }
+    .widget:last-child { margin-bottom: 0; }
+    .widget-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Contact links */
+    .contact-links { list-style: none; }
+    .contact-links li { margin-bottom: 10px; }
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .contact-links a:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    .contact-links .cl-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Quick facts */
+    .fact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .fact-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .fact-label { color: var(--ink-muted); }
+    .fact-value { color: var(--ink); font-weight: 600; }
+
+    /* Goals */
+    .goal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .goal-item:last-child { margin-bottom: 0; }
+    .goal-dot {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--sidebar);
+      padding: 28px 40px;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: rgba(255,255,255,.4); }
+    footer a { color: var(--sidebar-accent); text-decoration: none; font-weight: 600; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .page { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .hobbies-grid { grid-template-columns: 1fr 1fr; }
+      .hero-banner { padding: 48px 24px 56px; }
+      .hero-banner h1 { font-size: 30px; }
+      .card { padding: 24px 20px; }
+      nav { padding: 12px 16px; flex-wrap: wrap; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html">🏠 Home</a>
+    <span class="sep">›</span>
+    <a href="../curriculo/curriculo.html">📄 Currículo</a>
+    <span class="sep">›</span>
+    <a href="../portfolio/portfolio.html">💼 Portfólio</a>
+    <span class="sep">›</span>
+    <a class="active" href="#">👤 Sobre Mim</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-banner">
+    <div class="hero-inner">
+      <img class="hero-avatar" src="../assets/assets/perfil-dark.png" alt="Leandro Sergio" />
+      <h1>Leandro Sérgio</h1>
+      <p class="role">Dev Web · Sistema de Informações · UFRN</p>
+      <p class="tagline">Estudante apaixonado por tecnologia, construindo uma carreira sólida em desenvolvimento web.</p>
+      <div class="hero-links">
+        <a href="../curriculo/curriculo.html" class="hl-primary">📄 Ver Currículo</a>
+        <a href="https://github.com/LeoSergio" target="_blank" class="hl-outline">🐙 GitHub</a>
+        <a href="https://bit.ly/45W4bCS" target="_blank" class="hl-outline">💬 WhatsApp</a>
       </div>
     </div>
+  </div>
 
-    <div class="conteudo">
-      <section class="one">
-        <article>
-          <h2>Sobre mim:</h2>
+  <!-- PAGE BODY -->
+  <div class="page">
+
+    <!-- MAIN COLUMN -->
+    <div>
+
+      <!-- Quem sou eu -->
+      <div class="card">
+        <h2 class="card-title"><span class="ct-icon">👤</span> Quem sou eu</h2>
+        <div class="bio-block">
           <p>
-            Olá! Meu nome é Leandro, tenho 24 anos e sou estudante de Sistema de Informação na Universidade Federal do Rio Grande do Norte (UFRN). Tenho interesse em desenvolvimento Full-Stack e busco constantemente aprimorar minhas habilidades na área.
+            Olá! Sou <strong>Leandro Sérgio da Silva</strong>, 24 anos. Sou estudante de
+            <strong>Sistemas de Informação na UFRN</strong> e desenvolvedor web em formação, com foco em criar
+            interfaces funcionais, bem estruturadas e com boa experiência para o usuário.
           </p>
-          <br />
           <p>
-            Já tive experiência profissional trabalhando por 6 anos no Quiosque Jardim, atuando em diversas funções como atendimento ao cliente, produção de salgados e entregas. Além disso, assumi responsabilidades gerenciais na ausência do proprietário, adquirindo experiência em organização e liderança.
+            Minha jornada na tecnologia começou por curiosidade e evoluiu para uma vocação. Hoje estudo ativamente
+            <strong>HTML, CSS e JavaScript</strong>, além de explorar Python e C em projetos acadêmicos. Estou na
+            trilha Full Stack da <strong>Rocketseat</strong>, onde consolido minha base técnica com projetos práticos.
           </p>
-          <br />
           <p>
-            No desenvolvimento, tenho experiência com Python e C por meio de projetos acadêmicos, além de estar focado no aprendizado de tecnologias web como HTML, CSS3 e JavaScript. Meu objetivo é me tornar um desenvolvedor Full-Stack e eventualmente alcançar o nível sênior na área.
+            Antes de entrar na área de tecnologia, trabalhei por <strong>6 anos no setor de atendimento e vendas</strong>,
+            onde desenvolvi habilidades valiosas em comunicação, liderança, gestão de tempo e resolução de problemas
+            sob pressão — competências que levo diretamente para o ambiente de desenvolvimento.
           </p>
-          <br />
           <p>
-            Gosto de aprender constantemente, explorar novas tecnologias e contribuir para projetos open-source. Se você quiser trocar ideias ou colaborar em algum projeto, sinta-se à vontade para entrar em contato!
+            Meu objetivo é me tornar um desenvolvedor Full Stack, contribuir com projetos de impacto real e,
+            futuramente, alcançar o nível sênior na área. Acredito que aprendizado contínuo e consistência
+            são os pilares de uma carreira sólida.
           </p>
-        </article>
-      </section>
-      <aside id="hobbie">
-        <h2>Hobbies:</h2>
-        <ol>
-          <li>
-            <ion-icon name="logo-game-controller-a" id="icon"></ion-icon> Games, Filmes e Séries.
-          </li>
-          <li>
-            <ion-icon name="musical-notes" id="icon"></ion-icon> Músicas
-          </li>
-          <li onclick="clickMenu()"><span>
-            <ion-icon name="football" id="icon"></ion-icon> Esportes:</span>
-          </li>
-          <div id="acesso2">
-            <ul type="square">
-              <li>Futebol</li>
-              <li>Ciclismo</li>
-            </ul>
+        </div>
+      </div>
+
+      <!-- Valores -->
+      <div class="card">
+        <h2 class="card-title"><span class="ct-icon">💡</span> O que me move</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <span class="vi-icon">🎯</span>
+            <h3>Foco em Qualidade</h3>
+            <p>Prefiro fazer menos e fazer bem. Código limpo, interfaces acessíveis e atenção aos detalhes.</p>
           </div>
-        </ol>
-      </aside>
-      <section class="two">
-        <h2>Contate-me:</h2>
-        <ul>
+          <div class="value-item">
+            <span class="vi-icon">📚</span>
+            <h3>Aprendizado Contínuo</h3>
+            <p>Tecnologia evolui rápido. Me mantenho atualizado e encaro cada desafio como oportunidade de crescer.</p>
+          </div>
+          <div class="value-item">
+            <span class="vi-icon">🤝</span>
+            <h3>Colaboração</h3>
+            <p>Acredito que os melhores resultados vêm do trabalho em equipe e da troca constante de conhecimento.</p>
+          </div>
+          <div class="value-item">
+            <span class="vi-icon">🚀</span>
+            <h3>Ambição com Propósito</h3>
+            <p>Quero construir coisas que gerem valor real para pessoas — não apenas código que funciona, mas soluções que importam.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jornada -->
+      <div class="card">
+        <h2 class="card-title"><span class="ct-icon">🗺️</span> Minha Jornada</h2>
+        <div class="journey-item">
+          <div class="ji-dot">🏫</div>
+          <div class="ji-body">
+            <p class="ji-year">ATÉ 2022</p>
+            <p class="ji-title">Experiência Profissional em Atendimento</p>
+            <p class="ji-desc">Acumulando responsabilidades em atendimento ao cliente, operações e gestão. Uma escola prática de vida profissional.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="ji-dot">🚀</div>
+          <div class="ji-body">
+            <p class="ji-year">2023</p>
+            <p class="ji-title">Trilha Full Stack — Rocketseat</p>
+            <p class="ji-desc">Formação paralela focada em desenvolvimento web: HTML, CSS, JavaScript e construção de projetos reais publicados no GitHub.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="ji-dot">🎓</div>
+          <div class="ji-body">
+            <p class="ji-year">2025</p>
+            <p class="ji-title">Ingresso na UFRN — Sistemas de Informação</p>
+            <p class="ji-desc">Início da graduação, mergulhando em algoritmos, lógica de programação, banco de dados e engenharia de software.</p>
+          </div>
+        </div>
+        
+        <div class="journey-item">
+          <div class="ji-dot">⚡</div>
+          <div class="ji-body">
+            <p class="ji-year">HOJE</p>
+            <p class="ji-title">Desenvolvendo projetos & buscando oportunidades</p>
+            <p class="ji-desc">Construindo portfólio, evoluindo em JavaScript e aberto à primeira oportunidade profissional na área de tecnologia.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hobbies -->
+      <div class="card">
+        <h2 class="card-title"><span class="ct-icon">🎮</span> Interesses & Hobbies</h2>
+        <div class="hobbies-grid">
+          <div class="hobby-item">
+            <span class="hi-icon">🎮</span>
+            <h3>Games</h3>
+            <p>Estratégia e RPG...</p>
+          </div>
+          <div class="hobby-item">
+            <span class="hi-icon">🎬</span>
+            <h3>Filmes & Séries</h3>
+            <p>Ficção científica e drama</p>
+          </div>
+          <div class="hobby-item">
+            <span class="hi-icon">🎵</span>
+            <h3>Música</h3>
+            <p>Sendo Boa</p>
+          </div>
+          <div class="hobby-item">
+            <span class="hi-icon">⚽</span>
+            <h3>Futebol</h3>
+            <p>Jogar e assistir</p>
+          </div>
+          <div class="hobby-item">
+            <span class="hi-icon">🚴</span>
+            <h3>Ciclismo</h3>
+            <p>Pedaladas ao ar livre</p>
+          </div>
+          <div class="hobby-item">
+            <span class="hi-icon">💻</span>
+            <h3>Open Source</h3>
+            <p>Explorar e contribuir</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR COLUMN -->
+    <div>
+
+      <!-- Contato rápido -->
+      <div class="widget">
+        <p class="widget-title">Entre em Contato</p>
+        <ul class="contact-links">
           <li>
-            <a href="https://wa.me/qr/FRZHDKRQJUIWH1" target="_blank">
-              <ion-icon name="logo-whatsapp"></ion-icon> 84 9 9619-7364
+            <a href="https://bit.ly/45W4bCS" target="_blank">
+              <span class="cl-icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
+              WhatsApp
             </a>
           </li>
           <li>
-            <a href="https://instagram.com/leandro.sergio.583?igshid=NzZlODBkYWE4Ng==">
-              <ion-icon name="logo-Instagram"></ion-icon> @leandro.sergio.583
+            <a href="mailto:leosergio.583@gmail.com">
+              <span class="cl-icon"><ion-icon name="mail"></ion-icon></span>
+              E-mail
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/LeoSergio" target="_blank">
+              <span class="cl-icon"><ion-icon name="logo-github"></ion-icon></span>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/leandro.sergio.583/" target="_blank">
+              <span class="cl-icon"><ion-icon name="logo-instagram"></ion-icon></span>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank">
+              <span class="cl-icon"><ion-icon name="logo-linkedin"></ion-icon></span>
+              LinkedIn
             </a>
           </li>
         </ul>
-      </section>
-      <div class="button">
-        <abbr title="Voltar">
-          <button>
-            <a href="../index.html">
-              <ion-icon name="home"></ion-icon>
-            </a>
-          </button>
-        </abbr>
       </div>
+
+      <!-- Dados rápidos -->
+      <div class="widget">
+        <p class="widget-title">Dados Rápidos</p>
+        <div class="fact-item">
+          <span class="fact-label">Idade</span>
+          <span class="fact-value">24 anos</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Localização</span>
+          <span class="fact-value">Caicó, RN</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Graduação</span>
+          <span class="fact-value">UFRN — SI</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Foco atual</span>
+          <span class="fact-value">Aplicações Web</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Disponível</span>
+          <span class="fact-value" style="color:#16a34a">✔ Sim</span>
+        </div>
+      </div>
+
+      <!-- Metas -->
+      <div class="widget">
+        <p class="widget-title">Próximos Objetivos</p>
+        <div class="goal-item">
+          <span class="goal-dot">1</span>
+          Desenvolvimento Fullstack
+        </div>
+        <div class="goal-item">
+          <span class="goal-dot">2</span>
+          Aprender React(Frontend) e Python(Backend)
+        </div>
+        <div class="goal-item">
+          <span class="goal-dot">3</span>
+          Oportunidade profissional em tech
+        </div>
+        <div class="goal-item">
+          <span class="goal-dot">4</span>
+          Contribuir com projetos open source
+        </div>
+        <div class="goal-item">
+          <span class="goal-dot">5</span>
+          Alcançar nível sênior como dev Full Stack
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <footer>
-      <p>
-        Criado com <span>&hearts;</span> por <a href="#">Leandro S. da Silva</a>
-      </p>
-    </footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>Desenvolvido por <a href="../index.html">Leandro Sergio</a></p>
+  </footer>
 
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script>
-      function clickMenu() {
-        if (acesso2.style.display == "block") {
-          acesso2.style.display = "none";
-        } else {
-          acesso2.style.display = "block";
-        }
-      }
-    </script>
-  </body>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
 </html>
