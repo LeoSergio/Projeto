@@ -1,198 +1,468 @@
+/* =============================================
+   VARIABLES — DARK (default)
+   ============================================= */
 :root {
-  --text-color: white;
-  --bg-url: url(./assets/assets/bg-desktop.jpg);
-  --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(255, 255, 255, 0.2);
-  --switch-bg-url: url(./moom-stars.svg);
+  --bg: #0a0a0f;
+  --bg-card: rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.1);
+  --border-hover: rgba(129,230,217,0.6);
+  --text: #e8e8f0;
+  --text-muted: rgba(232,232,240,0.5);
+  --accent: #81e6d9;
+  --accent2: #f6ad55;
+  --glow: rgba(129,230,217,0.15);
+  --grid-color: rgba(255,255,255,0.03);
+  --badge-bg: rgba(129,230,217,0.12);
+  --badge-color: #81e6d9;
+  --btn-primary-bg: #81e6d9;
+  --btn-primary-text: #0a0a0f;
+  --switch-icon: url(./moom-stars.svg);
 }
 
+/* =============================================
+   VARIABLES — LIGHT
+   ============================================= */
 .light {
-  --text-color: black;
-  --bg-url: url(./assets/assets/bg-desktop-light.jpg);
-
-  --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(0, 0, 0, 0.1);
-  --switch-bg-url: url(./sun.svg);
+  --bg: #f0f2f5;
+  --bg-card: rgba(0,0,0,0.04);
+  --bg-card-hover: rgba(0,0,0,0.07);
+  --border: rgba(0,0,0,0.1);
+  --border-hover: rgba(49,130,206,0.6);
+  --text: #1a202c;
+  --text-muted: rgba(26,32,44,0.5);
+  --accent: #2b6cb0;
+  --accent2: #c05621;
+  --glow: rgba(49,130,206,0.1);
+  --grid-color: rgba(0,0,0,0.04);
+  --badge-bg: rgba(49,130,206,0.1);
+  --badge-color: #2b6cb0;
+  --btn-primary-bg: #2b6cb0;
+  --btn-primary-text: #fff;
+  --switch-icon: url(./sun.svg);
 }
 
-* {
-  /*Espaços internos=Por padrão o navegador determina suas proprias medidas de tamanho,com essas codigos fica tudo personalizavel, isso se chama reset do CSS*/
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* =============================================
+   RESET
+   ============================================= */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
+/* =============================================
+   BASE
+   ============================================= */
 body {
-  background: var(--bg-url) no-repeat top center/cover;
-  /*Agrupamento do background chamado também de atalho
-  ex:background: color image repeat position/size...*/
-}
-body * {
-  font-family: "Inter", sans-serif;
-  color: var(--text-color);
-}
-/*#= seletor do id aqui no CSS*/
-#container {
-  width: 100%;
-  max-width: 588px;
-  margin: 56px auto 0px;
-  padding: 24px;
-}
-/*No CSS geralmente não usa o height/altura, pq a altura geralmente segue o conteudo da page*/
-
-/*Uma maneira de centralizar elementos=text-align*/
-
-#profile {
-/*Alinhamneto de texto*/  
-  text-align: center;
-  padding: 24px;
+  background: var(--bg);
+  font-family: 'Syne', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
-#profile img {
-  width: 112px;
-  margin: auto;
-  display: block;
-  border: 1px solid black ;
-  border-radius: 50%;
-}
-#profile p {
-  font-weight: 500; /*Largura das letras*/
-  line-height: 24px; /*altura das linhas*/
-  margin-top: 8px; /*margem do topo/cima*/
-}
-
-#switch{
-  position:relative;
-  width: 64px;
-  margin: 4px auto;
-
+/* Animated background grid */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-
-#switch button {
-  width: 32px;
-  height: 32px;
-  background: white var(--switch-bg-url) no-repeat center;
-  border: 0;
-  border-radius: 50%;
-
-  /*Alinhamneto do button*/
-position:absolute;
-top:50%;
-left:0;
-z-index:1;
-transform: translateY(-50%);
-
-animation: slide-back 0.2s;
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+  top: -100px; right: -150px;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 8s ease-in-out infinite;
 }
 
-.light #switch button{
-animation: slide-in 0.2s forwards; /*Animação de ida e volta do button*/
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(30px); }
 }
 
-#switch button:hover{
-  outline: 8px solid var(--highlight-color);
+/* =============================================
+   WRAPPER
+   ============================================= */
+#wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
 }
 
-#switch span {
-  display: block;
-  width: 64px;
-  height: 24px;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 9999px;
-}
-
-ul {
-  list-style: none; /*estilos de lista e serve para retirar o marcador das ul/ol*/
-  display: flex; /*flexibilizaçao da tela serve para tipo ativar a manipulaçao dos elementos*/
-  flex-direction: column; /*ordena as coisas em coluna*/
-  gap: 16px; /*espaçamento entre um elemento e outro*/
-  padding: 24px 0px;
-}
-ul li a {
-         /*Alinhamento de itens*/  
+/* =============================================
+   TOPBAR
+   ============================================= */
+#topbar {
   display: flex;
-  align-items: center; /*Alinhar itens eixo x*/
-  justify-content: center; /*Alinhar itens eixo y*/
-  padding: 16px 24px;
-
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  border-radius: 8px; /*Arredondamento de bordas*/
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop: blur(4px);
-
-  text-decoration: none; /*Decoração de texto*/
-  font-weight: 500;
-  transition: background 0.2s;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 0;
+  margin-bottom: 64px;
 }
 
-ul li a:hover {
-  background: var(--surface-color-hover);
-  border: 1.5px solid var(--text-color);
+.logo-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
 }
 
+/* Switch */
+#switch {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  cursor: pointer;
+}
+.switch-track {
+  display: block;
+  width: 56px; height: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+.switch-btn {
+  position: absolute;
+  top: 50%; left: 4px;
+  transform: translateY(-50%);
+  width: 20px; height: 20px;
+  background: white var(--switch-icon) no-repeat center / 14px 14px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: left 0.2s;
+  z-index: 1;
+}
+.light .switch-btn { left: calc(100% - 24px); }
+.switch-btn:hover { outline: 6px solid var(--glow); }
+
+/* =============================================
+   HERO
+   ============================================= */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: 56px;
+  animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#hero-left { flex: 1; min-width: 0; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--badge-color);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.accent { color: var(--accent); }
+
+.subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.bio {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 460px;
+  margin-bottom: 32px;
+}
+
+/* CTA buttons */
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.btn-primary, .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--border-hover);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Social links */
 #social-links {
   display: flex;
-  justify-content: center;
-  padding: 24px 0px;
-  font-size: 24px; /*tamanho da fonte*/
+  gap: 4px;
 }
-
 #social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-
-  transition: background 0.2s;
-
-  border-radius: 50%;
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
 }
-
 #social-links a:hover {
-  background: var(--highlight-color);
-}
-footer {
-  /*Alinamneto de text*/
-  padding: 24px 0;
-  text-align: center;
-  font-size: 14px;
+  color: var(--accent);
+  background: var(--bg-card);
+  border-color: var(--border);
+  transform: translateY(-2px);
 }
 
-/*Media queries
-Serve para mudar a imagem de fundo de acordo com o dispositivo*/
-@media (min-width:700px){
-  :root{
-    --bg-url: url(assets/assets/bg-mobile.jpg);
+/* Avatar */
+#hero-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-wrap {
+  position: relative;
+  width: 220px; height: 220px;
+}
+.avatar-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0.4;
+  animation: spin 20s linear infinite;
+  background: conic-gradient(from 0deg, var(--accent), transparent 60%, var(--accent2), transparent);
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.avatar-wrap img {
+  width: 220px; height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.avatar-badge {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  width: 40px; height: 40px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  z-index: 2;
+}
 
-  }
-  .light{
-    --bg-url: url(assets/assets/bg-desktop-light.jpg)
-  }
+/* =============================================
+   SKILLS STRIP
+   ============================================= */
+#skills-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 64px;
+  animation: fadeUp 0.6s 0.15s ease both;
 }
-/*Animação de ida e volta do button*/
-@keyframes slide-in{
-from {
-  left: 0;
+.skill-chip {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  transition: all 0.2s;
+  cursor: default;
 }
-to{
-  left:50%;
+.skill-chip:hover {
+  border-color: var(--border-hover);
+  color: var(--accent);
+  background: var(--badge-bg);
 }
+
+/* =============================================
+   NAV CARDS
+   ============================================= */
+#nav-cards {
+  animation: fadeUp 0.6s 0.3s ease both;
 }
-@keyframes slide-back{
-  from{
-    left:50%;
-  }
-  to{
-    left:0;
-  }
+.section-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.nav-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.nav-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+  border-radius: 16px;
+}
+.nav-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.card-portfolio:hover { --border-hover: rgba(129,230,217,0.5); }
+.card-curriculo:hover { --border-hover: rgba(246,173,85,0.5); }
+.card-sobre:hover     { --border-hover: rgba(154,117,234,0.5); }
+.card-rocket:hover    { --border-hover: rgba(252,129,74,0.5); }
+
+.card-icon {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+}
+.card-portfolio .card-icon { color: #81e6d9; }
+.card-curriculo .card-icon { color: #f6ad55; }
+.card-sobre .card-icon     { color: #9a75ea; }
+.card-rocket .card-icon    { color: #fc814a; }
+
+.card-text { flex: 1; }
+.card-text h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.card-text p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.card-arrow {
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: transform 0.2s, color 0.2s;
+}
+.nav-card:hover .card-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+#footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+}
+.footer-sep { color: var(--border); }
+#footer strong { color: var(--text); }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 700px) {
+  #hero { flex-direction: column-reverse; gap: 32px; }
+  #hero-right { width: 100%; justify-content: center; }
+  .avatar-wrap, .avatar-wrap img { width: 160px; height: 160px; }
+  .cards-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 44px; }
+  #topbar { margin-bottom: 40px; }
 }

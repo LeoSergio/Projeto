@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevLinks</title>
+    <title>LeoSergio · Dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
-    
   </head>
   <body>
-    <div id="container">
-      <!--Agrupar dados praticamente-->
-
-      <div id="profile">
-        <img src="assets/assets/perfil-dark.png" alt="foto de perfil" />
-
-        <p>@LeoSergio</p>
-      </div>
-
-      <div id="switch" onclick ="toggleMode()">
-        <button></button>
-        <span> </span>
-      </div>
-
-      <!--Lista não ordenada-->
-      <ul>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div id="wrapper">
+      <header id="topbar">
+        <span class="logo-tag">&lt;LeoSergio /&gt;</span>
+        <div id="switch" onclick="toggleMode()" title="Alternar tema">
+          <button class="switch-btn"></button>
+          <span class="switch-track"></span>
+        </div>
+      </header>
+      <section id="hero">
+        <div id="hero-left">
+          <div class="badge">Disponível para projetos</div>
+          <h1>Leandro<br><span class="accent">Sergio</span></h1>
+          <p class="subtitle">Desenvolvedor Web · Estudante Rocketseat</p>
+          <p class="bio">Apaixonado por criar interfaces modernas e funcionais. Focado em HTML, CSS e JavaScript, sempre aprendendo e evoluindo no ecossistema web.</p>
+          <div class="cta-row">
+            <a href="curriculo/curriculo.html" target="_blank" class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Ver Currículo
+            </a>
+            <a href="portfolio/portfolio.html" target="_blank" class="btn-outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Portfólio
+            </a>
+          </div>
+          <div id="social-links">
+            <a href="https://github.com/LeoSergio" target="_blank" title="GitHub"><ion-icon name="logo-github"></ion-icon></a>
+            <a href="https://www.instagram.com/leandro.sergio.583/" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.youtube.com/@leandrosergio6093/featured" target="_blank" title="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </div>
+        </div>
+        <div id="hero-right">
+          <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <img id="avatar-img" src="assets/assets/perfil-dark.png" alt="Foto de Leandro Sergio" />
+            <div class="avatar-badge"><span>💻</span></div>
+          </div>
+        </div>
+      </section>
+      <section id="skills-strip">
+        <div class="skill-chip">HTML5</div>
+        <div class="skill-chip">CSS3</div>
+        <div class="skill-chip">JavaScript</div>
+        <div class="skill-chip">Responsivo</div>
+        <div class="skill-chip">Git</div>
+        <div class="skill-chip">UI/UX</div>
+      </section>
+      <section id="nav-cards">
+        <h2 class="section-title">Explore</h2>
+        <div class="cards-grid">
+          <a href="portfolio/portfolio.html" target="_blank" class="nav-card card-portfolio">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <div class="card-text"><h3>Portfólio</h3><p>Projetos desenvolvidos e trabalhos realizados</p></div>
+            <div class="card-arrow">→</div>
+          </a>
+          <a href="curriculo/curriculo.html" target="_blank" class="nav-card card-curriculo">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="card-text"><h3>Currículo</h3><p>Formação, experiências e habilidades técnicas</p></div>
+            <div class="card-arrow">→</div>
+          </a>
+          <a href="sobremim/sobremim.html" class="nav-card card-sobre">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="card-text"><h3>Sobre Mim</h3><p>Minha história, interesses e objetivos</p></div>
+            <div class="card-arrow">→</div>
+          </a>
+          <a href="https://www.rocketseat.com.br" target="_blank" class="nav-card card-rocket">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            </div>
+            <div class="card-text"><h3>Rocketseat</h3><p>Plataforma onde estou aprendendo programação</p></div>
+            <div class="card-arrow">↗</div>
+          </a>
+        </div>
+      </section>
+      <footer id="footer">
+        <span>Desenvolvido por <strong>Leandro Sergio</strong></span>
+        <span class="footer-sep">·</span>
         
-        <li>
-          <a href="portfolio/portfolio.html" target="_blank">Ver meu Portifólio</a>
-        </li>
-
-        <li>
-          <a href="curriculo/curriculo.html" target="_blank">Ver meu Curriculo</a>
-        </li>
-
-        <li>
-          <a href="sobremim/sobremim.html" target="">Um Pouco sobre mim</a>
-        </li>
-
-        <li>
-          <a href="https://www.rocketseat.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=lead&utm_term=perpetuo&utm_content=institucional-lead-home-texto-lead-brandkws-none-none-institucional-none-none-br-google&utm_term=rocketseat&utm_campaign=PROGRAMAS-ALL-BRANDKWS-SEM&utm_source=adwords&utm_medium=ppc&hsa_acc=8545075154&hsa_cam=16048648686&hsa_grp=135825188594&hsa_ad=579096962131&hsa_src=g&hsa_tgt=kwd-679159515078&hsa_kw=rocketseat&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjw6p-oBhAYEiwAgg2Pgsp5iWg95nJRhw8sos1mlVCJqBIN69h8ZGpzH45JnO5QFAdpyttj7RoCYjMQAvD_BwE" target="_blank"
-            >Conheça a Rocketseat</a
-          >
-        </li>
-      </ul>
-
-      <div id="social-links">
-        <a href="https://github.com/LeoSergio" target="_blank">
-          <ion-icon name="logo-github"></ion-icon>
-        </a>
-
-        <a href="https://www.instagram.com/leandro.sergio.583/?igshid=NzZlODBkYWE4Ng%3D%3D" target="_blank">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-
-        <a href="https://www.youtube.com/@leandrosergio6093/featured" target="_blank">
-          <ion-icon name="logo-youtube"></ion-icon>
-        </a>
-
-        <a href="linkedin.com" target="_blank">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-      </div>
-      <footer>
-        Feito com &hearts; pela
-        <a href="https://rocketseat.com.br" target="_blank">rocketseat</a>
       </footer>
     </div>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>

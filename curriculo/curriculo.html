@@ -3,163 +3,689 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículo</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style685px.css">
+  <title>Currículo · Leandro Sergio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #1a1a2e;
+      --ink-soft: #4a4a6a;
+      --ink-muted: #8888aa;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --line: #e8e8f0;
+      --bg: #f8f8fc;
+      --white: #ffffff;
+      --sidebar: #1a1a2e;
+      --sidebar-accent: #3b82f6;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 12px rgba(0,0,0,.06);
+    }
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all .2s;
+    }
+    nav a:hover { background: var(--accent-light); color: var(--accent); }
+    nav .sep { color: var(--line); font-size: 18px; user-select: none; }
+    nav .active { color: var(--accent); background: var(--accent-light); }
+
+    /* ── PAGE SHELL ── */
+    .page {
+      max-width: 1080px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    aside {
+      background: var(--sidebar);
+      border-radius: 20px;
+      overflow: hidden;
+      position: sticky;
+      top: 90px;
+    }
+
+    .sidebar-top {
+      padding: 36px 28px 28px;
+      text-align: center;
+      background: linear-gradient(160deg, #1e2d5a 0%, #1a1a2e 100%);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .avatar-wrap {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--sidebar-accent);
+      overflow: hidden;
+      margin: 0 auto 16px;
+    }
+    .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sidebar-top h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .sidebar-top .role {
+      font-size: 12px;
+      color: var(--sidebar-accent);
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-section {
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .sidebar-section:last-child { border-bottom: none; }
+
+    .sidebar-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-bottom: 14px;
+    }
+
+    .contact-list { list-style: none; }
+    .contact-list li { margin-bottom: 10px; }
+    .contact-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.7);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+    .contact-list a:hover { color: #fff; }
+    .contact-list .icon {
+      width: 30px; height: 30px;
+      background: rgba(59,130,246,.15);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      color: var(--sidebar-accent);
+    }
+
+    /* Skills bars */
+    .skill-item { margin-bottom: 14px; }
+    .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .skill-name { font-size: 13px; color: rgba(255,255,255,.75); }
+    .skill-pct { font-size: 11px; color: rgba(255,255,255,.35); font-family: monospace; }
+    .skill-bar { height: 4px; background: rgba(255,255,255,.08); border-radius: 9999px; overflow: hidden; }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--sidebar-accent), #60a5fa);
+      border-radius: 9999px;
+      animation: fillBar .8s ease both;
+    }
+    @keyframes fillBar { from { width: 0; } }
+
+    /* Soft skills tags */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid rgba(59,130,246,.3);
+      color: rgba(255,255,255,.6);
+      background: rgba(59,130,246,.1);
+    }
+
+    /* ── MAIN CONTENT ── */
+    main { display: flex; flex-direction: column; gap: 28px; }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 44px;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #60a5fa, #a78bfa);
+    }
+    .hero-card .name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .hero-card .title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-card .summary {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      max-width: 560px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .hero-meta-item a { color: var(--ink-soft); text-decoration: none; }
+    .hero-meta-item a:hover { color: var(--accent); }
+    .hero-meta-item .dot {
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    /* Section card */
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 44px;
+      border: 1px solid var(--line);
+    }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .card-title .ct-icon {
+      width: 34px; height: 34px;
+      background: var(--accent-light);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: .04em;
+      padding-top: 3px;
+      text-align: right;
+      font-family: monospace;
+    }
+    .timeline-body {
+      padding-left: 20px;
+      border-left: 2px solid var(--line);
+      position: relative;
+    }
+    .timeline-body::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 6px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      outline: 2px solid var(--line);
+    }
+    .timeline-role {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .timeline-org {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .timeline-tag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Tech grid */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+    .tech-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 14px;
+      text-align: center;
+      transition: all .2s;
+      cursor: default;
+    }
+    .tech-item:hover { border-color: var(--accent); background: var(--accent-light); }
+    .tech-icon { font-size: 26px; margin-bottom: 8px; display: block; }
+    .tech-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .tech-level { font-size: 11px; color: var(--ink-muted); }
+
+    /* Project cards */
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      transition: all .2s;
+      text-decoration: none;
+      display: block;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,.1); }
+    .project-card .proj-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .project-card .proj-title span { font-size: 16px; }
+    .project-card .proj-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 12px; }
+    .project-card .proj-link { font-size: 12px; color: var(--accent); font-weight: 600; }
+
+    /* Certs */
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      transition: all .2s;
+      text-decoration: none;
+    }
+    .cert-item:last-child { margin-bottom: 0; }
+    .cert-item:hover { border-color: var(--accent); background: var(--accent-light); }
+    .cert-logo {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .cert-info .cert-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .cert-info .cert-org { font-size: 12px; color: var(--ink-muted); }
+
+    /* ── PRINT ── */
+    @media print {
+      nav, .no-print { display: none !important; }
+      body { background: white; }
+      .page { max-width: 100%; margin: 0; gap: 20px; }
+      .card, .hero-card { box-shadow: none; border: 1px solid #ddd; }
+      aside { position: static; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .page { grid-template-columns: 1fr; }
+      aside { position: static; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-date { text-align: left; }
+      .hero-card { padding: 28px 24px; }
+      .card { padding: 24px 20px; }
+      .hero-card .name { font-size: 28px; }
+    }
+  </style>
 </head>
+<body>
 
-<body onresize="screen()">
-<header>
-  <div class="header">
-    <ion-icon name="menu" id="icon-menu" onclick="toggleMenu()"></ion-icon>
-    <nav>
-      <ul>
-        
-
-        <li><a href="../index.html"><ion-icon name="home" id="icon-header" ></ion-icon>Home</a></li>
-
-        <li><a href="../portfolio/portfolio.html"><ion-icon name="briefcase" id="icon-header"></ion-icon>Portifolio</a></li>
-
-        <li><a href="../sobremim/sobremim.html"><ion-icon name="person" id="icon-header"></ion-icon>Sobre</a></li>
-      </ul>
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html">🏠 Home</a>
+    <span class="sep">›</span>
+    <a href="../portfolio/portfolio.html">💼 Portfólio</a>
+    <span class="sep">›</span>
+    <a href="../sobremim/sobremim.html">👤 Sobre</a>
+    <span class="sep">›</span>
+    <a class="active" href="#">📄 Currículo</a>
   </nav>
-  </div>
-  
-</header>
-<main> 
-  <div class="container-principal">
+
+  <div class="page">
+
+    <!-- ── SIDEBAR ── -->
     <aside>
-      <div class="menuLateral" id="menuLateral">
-        <span id="close">X</span>
-        <div class="container">
-          <div class="perfil">
-            <img src="imagens/perfil.png" alt="">    
-          </div><!--Perfil--> 
+      <div class="sidebar-top">
+        <div class="avatar-wrap">
+          <img src="imagens/perfil.png" alt="Leandro Sergio" />
+        </div>
+        <h2>Leandro Sergio</h2>
+        <p class="role">Dev Web · Analista de Dados</p>
+      </div>
 
-          <div class="contact">
-            <h2>Contate-me:</h2>
-            <nav>
-              <ul>
-                <li><a href="https://bit.ly/45W4bCS" target="_blank"><ion-icon name="logo-whatsapp" id="icon"></ion-icon>Whatsapp</a></li>
-                <li><a href="https://www.instagram.com/leandro.sergio.583/?igshid=NzZlODBkYWE4Ng%3D%3D" target="_blank"><ion-icon name="logo-instagram" id="icon"></ion-icon>Instagram</a></li>
-                <li><a href="mailto:leosergio.583@gmail.com"target="_blank"><ion-icon name="mail" id="icon" ></ion-icon>E-mail</a></li>
-                <li><a href="https://github.com/LeoSergio"target="_blank"><ion-icon name="logo-github" id="icon"></ion-icon>Github</a></li>
-                <li><a href="#"target="_blank"><ion-icon name="logo-linkedin" id="icon"></ion-icon>Linkedin</a></li>
-              </ul>
-            </nav> 
-          </div><!--contact-->
-
-          <div class="soft-skills">
-            <h2>Habilidades</h2>
-            <p>
-              Proatividade <br>
-              <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-            </p>
-            <p>
-              trabalho em Equipe <br>
-              <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-            </p>
-            <p>
-              Produtividade <br>
-              <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-            </p>
-            <p>
-              Comunicação <br>
-              <span>&#9733;&#9733;&#9733;&#9733;</span>&#9734;
-            </p> 
-          </div><!--Soft Skills-->
-        </div> <!--Container-->
-      </div> <!--Menu Lateral-->
-  </aside>
-
-
-  <div class="main-container">
-        <section>
-          <h1 id="title">Leandro S. da Silva</h1>
-              <p>Desenvolvedor e Analista de Dados</p>
-        </section>
-      
-      <section>
-        <h2 id="subtitle">Informações Pessoais</h2>
-          <ul>
-            <li><strong>Leandro Sérgio da Silva</strong></li>
-
-            <li><ion-icon name="pin" id="icon"></ion-icon>Caico/RN</li>
-
-            <li><a href="https://bit.ly/45W4bCS"><ion-icon name="call" id="icon"></ion-icon>Telefone (84) 9 9619-7364</a></li>
-
-            <li><a href="mailto:leosergio.583@gmail.com"><ion-icon name="mail" id="icon"></ion-icon>leosergio.583@gmail.com</a></li>
-          </ul>
-
-        <a href="https://leosergio.github.io/Projeto/sobremim/sobremim.html" target="_blank">Saiba mais sobre mim</a>
-      </section>
-      <section>
-        <h2 id="subtitle">Objetivo Profissional:</h2>
-        <p>
-          Busco uma oportunidade como Desenvolvedor ou Analista de Dados. Desejo aplicar meus
-          conhecimentos técnicos em projetos práticos, crescer profissionalmente e contribuir com soluções eficientes
-          e inovadoras.
-        </p>
-      </section>
-      <section>
-        <h2 id="subtitle"><span>Educação:</span></h2>
-        <p>
-          * Cursando Ensino Superior em Sistema de Informação(UFRN)
-        </p> 
-      </section>
-      <section>
-        <h2 id="subtitle">Projetos Pessoais:</h2>
-        <ul id="one">
-          <li><a href="https://leosergio.github.io/projeto-login/" target="_blank">Tela de Login</a></li> 
-          <li><a href="https://leosergio.github.io/controle-de-financa/"target="_blank">Sistema de Controle Financeiro</a></li> 
+      <div class="sidebar-section">
+        <p class="sidebar-label">Contato</p>
+        <ul class="contact-list">
+          <li>
+            <a href="https://bit.ly/45W4bCS" target="_blank">
+              <span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
+              (84) 9 9619-7364
+            </a>
+          </li>
+          <li>
+            <a href="mailto:leosergio.583@gmail.com">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              leosergio.583@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/LeoSergio" target="_blank">
+              <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
+              github.com/LeoSergio
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/leandro.sergio.583/" target="_blank">
+              <span class="icon"><ion-icon name="logo-instagram"></ion-icon></span>
+              @leandro.sergio.583
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank">
+              <span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon"><ion-icon name="pin"></ion-icon></span>
+              Caicó / RN
+            </a>
+          </li>
         </ul>
-      </section>
+      </div>
 
-      <section>
-      <h2 id="subtitle">Experiência Profissional:</h2>
-        <p>Trabalhei por seis anos em atendimento e vendas em uma lanchonete, superação de desafios em equipe tanto pré e pós-pandemia. Habilidades em gestão, resolução de problemas e trabalho em equipe.</p>
-      </section>
-      <section>
-        <h2 id="subtitle">Certificações:</h2>
-          <ul id="one">
-            <li><a href="#">Excell basico e avançado(SENAI)</a></li>
-            <li><a href="certificações/certificate-rocketseat.pdf" target="_blank">Certificado da Rocketseat</a></li>
-          </ul>
-      </section>
-      
-    </div>
+      <div class="sidebar-section">
+        <p class="sidebar-label">Habilidades Técnicas</p>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">HTML5</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%; animation-delay:.1s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">CSS3</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%; animation-delay:.2s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-pct">65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%; animation-delay:.3s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Excel / Dados</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%; animation-delay:.4s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Git</span><span class="skill-pct">60%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%; animation-delay:.5s"></div></div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Soft Skills</p>
+        <div class="tag-cloud">
+          <span class="tag">Proatividade</span>
+          <span class="tag">Trabalho em Equipe</span>
+          <span class="tag">Comunicação</span>
+          <span class="tag">Produtividade</span>
+          <span class="tag">Resolução de Problemas</span>
+          <span class="tag">Adaptabilidade</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <main>
+
+      <!-- Hero -->
+      <div class="hero-card">
+        <p class="title">Desenvolvedor Web · Analista de Dados</p>
+        <h1 class="name">Leandro S. da Silva</h1>
+        <p class="summary">
+          Estudante de Sistemas de Informação na UFRN, com foco em desenvolvimento web e análise de dados.
+          Busco minha primeira oportunidade como desenvolvedor para aplicar conhecimentos em projetos práticos,
+          contribuir com soluções eficientes e crescer profissionalmente em um ambiente colaborativo.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="dot">📍</span> Caicó, RN — Brasil
+          </div>
+          <div class="hero-meta-item">
+            <span class="dot">✉️</span>
+            <a href="mailto:leosergio.583@gmail.com">leosergio.583@gmail.com</a>
+          </div>
+          <div class="hero-meta-item">
+            <span class="dot">🔗</span>
+            <a href="https://github.com/LeoSergio" target="_blank">github.com/LeoSergio</a>
+          </div>
+          <div class="hero-meta-item">
+            <span class="dot">🎓</span> UFRN — Sistemas de Informação
+          </div>
+        </div>
+      </div>
+
+      <!-- Objetivo -->
+      <div class="card">
+        <h2 class="card-title">
+          <span class="ct-icon">🎯</span> Objetivo Profissional
+        </h2>
+        <p style="font-size:15px;line-height:1.75;color:var(--ink-soft)">
+          Atuar como Desenvolvedor Web ou Analista de Dados em uma equipe dinâmica, onde possa aplicar e expandir
+          meus conhecimentos em HTML, CSS, JavaScript e ferramentas de análise de dados. Tenho interesse especial
+          em projetos que combinem design funcional com análise de informações para gerar impacto real.
+        </p>
+      </div>
+
+      <!-- Educação -->
+      <div class="card">
+        <h2 class="card-title">
+          <span class="ct-icon">🎓</span> Educação
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 → atual</div>
+            <div class="timeline-body">
+              <p class="timeline-role">Bacharelado em Sistemas de Informação</p>
+              <p class="timeline-org">Universidade Federal do Rio Grande do Norte — UFRN</p>
+              <p class="timeline-desc">Cursando graduação com foco em desenvolvimento de software, banco de dados e análise de sistemas. Participação em projetos práticos e estudos de programação web.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Algoritmos</span>
+                <span class="timeline-tag">Banco de Dados</span>
+                <span class="timeline-tag">Engenharia de Software</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2023 → atual</div>
+            <div class="timeline-body">
+              <p class="timeline-role">Trilha Full Stack</p>
+              <p class="timeline-org">Rocketseat</p>
+              <p class="timeline-desc">Formação prática em desenvolvimento web moderno: HTML, CSS, JavaScript, boas práticas de UI/UX e projetos reais com entrega no GitHub.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">HTML5</span>
+                <span class="timeline-tag">CSS3</span>
+                <span class="timeline-tag">JavaScript</span>
+                <span class="timeline-tag">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experiência -->
+      <div class="card">
+        <h2 class="card-title">
+          <span class="ct-icon">💼</span> Experiência Profissional
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2017 → 2023</div>
+            <div class="timeline-body">
+              <p class="timeline-role">Atendimento ao Cliente & Vendas</p>
+              <p class="timeline-org">Lanchonete — Caicó, RN</p>
+              <p class="timeline-desc">
+                Seis anos de atuação em ambiente de alto fluxo, com responsabilidades em atendimento ao cliente,
+                gestão de caixa, organização de estoque e trabalho em equipe. Experiência de superação de desafios
+                operacionais no período pré e pós-pandemia, desenvolvendo resiliência, gestão de conflitos
+                e habilidades sólidas de comunicação.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Atendimento</span>
+                <span class="timeline-tag">Gestão de Equipe</span>
+                <span class="timeline-tag">Resolução de Conflitos</span>
+                <span class="timeline-tag">Organização</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tecnologias -->
+      <div class="card">
+        <h2 class="card-title">
+          <span class="ct-icon">⚙️</span> Tecnologias
+        </h2>
+        <div class="tech-grid">
+          <div class="tech-item"><span class="tech-icon">🌐</span><p class="tech-name">HTML5</p><p class="tech-level">Intermediário</p></div>
+          <div class="tech-item"><span class="tech-icon">🎨</span><p class="tech-name">CSS3</p><p class="tech-level">Intermediário</p></div>
+          <div class="tech-item"><span class="tech-icon">⚡</span><p class="tech-name">JavaScript</p><p class="tech-level">Básico-Interm.</p></div>
+          <div class="tech-item"><span class="tech-icon">📊</span><p class="tech-name">Excel</p><p class="tech-level">Avançado</p></div>
+          <div class="tech-item"><span class="tech-icon">🐙</span><p class="tech-name">Git/GitHub</p><p class="tech-level">Básico</p></div>
+          <div class="tech-item"><span class="tech-icon">📱</span><p class="tech-name">Responsivo</p><p class="tech-level">Intermediário</p></div>
+        </div>
+      </div>
+
+      <!-- Projetos -->
+      <div class="card">
+        <h2 class="card-title">
+          <span class="ct-icon">🚀</span> Projetos
+        </h2>
+        <div class="projects-grid">
+          <a href="https://leosergio.github.io/projeto-login/" target="_blank" class="project-card">
+            <p class="proj-title"><span>🔐</span> Tela de Login</p>
+            <p class="proj-desc">Interface de autenticação responsiva com HTML e CSS puro, foco em design limpo e experiência do usuário.</p>
+            <p class="proj-link">Ver projeto →</p>
+          </a>
+          <a href="https://leosergio.github.io/controle-de-financa/" target="_blank" class="project-card">
+            <p class="proj-title"><span>💰</span> Controle Financeiro</p>
+            <p class="proj-desc">Sistema web para gestão de finanças pessoais com cadastro de receitas, despesas e visualização de saldo.</p>
+            <p class="proj-link">Ver projeto →</p>
+          </a>
+          <a href="../index.html" class="project-card">
+            <p class="proj-title"><span>🔗</span> DevLinks (este site)</p>
+            <p class="proj-desc">Página de perfil profissional com tema dark/light, cards de navegação e layout responsivo moderno.</p>
+            <p class="proj-link">Ver projeto →</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Certificações -->
+      <div class="card">
+        <h2 class="card-title">
+          <span class="ct-icon">🏆</span> Certificações
+        </h2>
+        <a href="certificações/certificate-rocketseat.pdf" target="_blank" class="cert-item">
+          <div class="cert-logo">🚀</div>
+          <div class="cert-info">
+            <p class="cert-name">Certificado — Trilha Full Stack</p>
+            <p class="cert-org">Rocketseat · 2023</p>
+          </div>
+        </a>
+        <a href="#" class="cert-item">
+          <div class="cert-logo">📊</div>
+          <div class="cert-info">
+            <p class="cert-name">Excel Básico e Avançado</p>
+            <p class="cert-org">SENAI</p>
+          </div>
+        </a>
+      </div>
+
+    </main>
   </div>
-</main> 
-    
-<script>
-    function toggleMenu() {
-  const menu = document.querySelector('.menuLateral');
-  const icon = document.getElementById('icon-menu');
 
-  menu.classList.toggle('active'); // Alterna a classe active para mostrar ou esconder o menu
-  
-  // Troca o ícone entre "menu" e "close"
-  if (menu.classList.contains('active')) {
-    icon.name = 'close'; // Troca para o ícone de fechamento (X)
-  } else {
-    icon.name = 'menu'; // Troca de volta para o ícone de menu (hamburguer)
-  }
-}
-
-// Fecha o menu se clicar fora dele
-document.addEventListener('click', function(event) {
-  const menu = document.querySelector('.menuLateral');
-  const icon = document.getElementById('icon-menu');
-  const menuContainer = document.querySelector('.container');
-
-  if (!menuContainer.contains(event.target) && !icon.contains(event.target)) {
-    menu.classList.remove('active'); // Fecha o menu
-    icon.name = 'menu'; // Altera para o ícone de menu (hamburguer)
-  }
-});
-
-
-</script>
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>
