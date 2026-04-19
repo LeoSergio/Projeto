@@ -1,21 +1,240 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portifólio</title>
+  <title>Portfólio · Leo Sergio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<style>
-  body{
-     background-color: rgb(53, 73, 73);
-  }
-  h1{
-    color:#fff;
-    text-align: center;
-  }
-</style>
 <body>
-    <h1>Em Desenvolvimento...</h1>
+<div class="bg-noise"></div>
+<div class="bg-glow"></div>
 
+<div id="app">
+
+  <!-- HEADER -->
+  <header>
+    <a href="" class="logo">&lt;Leo<span>Sergio</span> /&gt;</a>
+    <a href="../index.html" class="header-back">
+      <i class='bx bx-arrow-back'></i> Voltar
+    </a>
+  </header>
+
+  <!-- HERO DA LOJA -->
+  <section class="store-hero fade-up">
+    <div class="store-tag"><i class='bx bx-store'></i> App Store pessoal</div>
+    <h1>Meus <em>projetos</em>,<br>sua experiência.</h1>
+    <p>Aplicações web e mobile desenvolvidas com foco em usabilidade, performance e design moderno. Todos de código aberto.</p>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-row fade-up delay-1">
+    <div class="stat">
+      <span class="stat-num">2</span>
+      <span class="stat-label">APPS PUBLICADOS</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3+</span>
+      <span class="stat-label">EM DESENVOLVIMENTO</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">OPEN SOURCE</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">PWA</span>
+      <span class="stat-label">INSTALE NO CELULAR</span>
+    </div>
+  </div>
+
+  <!-- SEÇÃO APK DESTAQUE -->
+  <div class="section-head fade-up delay-2">
+    <h2><i class='bx bx-star' style="color:var(--accent);vertical-align:-2px"></i> Download direto</h2>
+  </div>
+
+  <div class="apk-section fade-up delay-2">
+    <div class="apk-icon"><i class='bx bx-line-chart'></i></div>
+    <div class="apk-info">
+      <h3>Controle Financeiro</h3>
+      <p>Gerencie suas receitas e despesas com gráficos, dashboard por categoria e funcionamento 100% offline. Seus dados ficam apenas no seu dispositivo.</p>
+      <div class="apk-meta">
+        <span class="apk-chip"><i class='bx bx-wifi-off'></i> Funciona offline</span>
+        <span class="apk-chip"><i class='bx bx-lock'></i> Dados locais</span>
+        <span class="apk-chip"><i class='bx bx-mobile'></i> Android</span>
+        <span class="apk-chip"><i class='bx bx-code-alt'></i> PWA / TWA</span>
+      </div>
+    </div>
+    <div class="apk-actions">
+      <a href="https://leosergio.github.io/mMyFinance/" class="btn-apk-primary" target="_blank">
+        <i class='bx bx-download'></i> Baixar APK
+      </a>
+      <a href="https://leosergio.github.io/mMyFinance/" class="btn-apk-outline" target="_blank">
+        <i class='bx bx-globe'></i> Abrir web
+      </a>
+    </div>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filter-row fade-up delay-3">
+    <button class="filter-btn active" onclick="filterCards('todos', this)">Todos</button>
+    <button class="filter-btn" onclick="filterCards('web', this)">Web App</button>
+    <button class="filter-btn" onclick="filterCards('mobile', this)">Mobile</button>
+    <button class="filter-btn" onclick="filterCards('em-breve', this)">Em breve</button>
+  </div>
+
+  <!-- GRID DE PROJETOS -->
+  <div class="projects-grid" id="projects-grid">
+
+    <!-- CARD 1 — CONTROLE FINANCEIRO (DESTAQUE) -->
+    <div class="project-card featured fade-up delay-3" data-cat="web mobile">
+      <div class="card-banner banner-finance">
+        <span class="card-badge badge-live">● AO VIVO</span>
+        <div class="card-banner-icon">📊</div>
+      </div>
+      <div style="display:flex;flex-direction:column;flex:1">
+        <div class="card-body">
+          <div class="card-title">Controle Financeiro</div>
+          <div class="card-desc">Aplicação completa para controle de receitas e despesas pessoais. Dashboard por categoria, gráfico de evolução do saldo, comparação entre meses, exportação para Google Sheets e funcionamento 100% offline como PWA.</div>
+          <div class="card-tags">
+            <span class="card-tag">HTML</span>
+            <span class="card-tag">CSS</span>
+            <span class="card-tag">JavaScript</span>
+            <span class="card-tag">PWA</span>
+            <span class="card-tag">LocalStorage</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://leosergio.github.io/mMyFinance/" class="btn-card btn-primary-card" target="_blank">
+            <i class='bx bx-globe'></i> Abrir app
+          </a>
+          <a href="https://leosergio.github.io/mMyFinance/" class="btn-card btn-outline-card" target="_blank">
+            <i class='bx bx-download'></i> APK
+          </a>
+          <a href="https://github.com/LeoSergio/mMyFinance" class="btn-card btn-outline-card" target="_blank">
+            <i class='bx bxl-github'></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 — SITE PESSOAL -->
+    <div class="project-card fade-up delay-3" data-cat="web">
+      <div class="card-banner banner-weather">
+        <span class="card-badge badge-live">● AO VIVO</span>
+        <div class="card-banner-icon">🧑‍💻</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Site Pessoal</div>
+        <div class="card-desc">Portfólio pessoal com design moderno, tema claro/escuro, seção de currículo e links sociais. Totalmente responsivo e sem frameworks.</div>
+        <div class="card-tags">
+          <span class="card-tag">HTML</span>
+          <span class="card-tag">CSS</span>
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">Responsivo</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="https://leosergio.github.io/Projeto" class="btn-card btn-primary-card" target="_blank">
+          <i class='bx bx-globe'></i> Visitar
+        </a>
+        <a href="https://github.com/LeoSergio" class="btn-card btn-outline-card" target="_blank">
+          <i class='bx bxl-github'></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 3 — EM BREVE: GESTOR DE TAREFAS -->
+    <div class="project-card fade-up delay-4" data-cat="em-breve web mobile">
+      <div class="card-banner banner-todo">
+        <span class="card-badge badge-soon">EM BREVE</span>
+        <div class="card-banner-icon">✅</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Gestor de Tarefas</div>
+        <div class="card-desc">App de produtividade com listas, prioridades, datas de vencimento e modo foco. Sincronização offline e notificações.</div>
+        <div class="card-tags">
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">PWA</span>
+          <span class="card-tag">IndexedDB</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-card btn-disabled">
+          <i class='bx bx-time'></i> Em desenvolvimento
+        </button>
+      </div>
+    </div>
+
+    <!-- CARD 4 — EM BREVE: APP DE CLIMA -->
+    <div class="project-card fade-up delay-4" data-cat="em-breve web">
+      <div class="card-banner banner-weather">
+        <span class="card-badge badge-soon">EM BREVE</span>
+        <div class="card-banner-icon">🌤️</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">App de Clima</div>
+        <div class="card-desc">Previsão do tempo com geolocalização, animações por condição climática e histórico de cidades consultadas.</div>
+        <div class="card-tags">
+          <span class="card-tag">API REST</span>
+          <span class="card-tag">Geolocation</span>
+          <span class="card-tag">CSS Animations</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-card btn-disabled">
+          <i class='bx bx-time'></i> Em desenvolvimento
+        </button>
+      </div>
+    </div>
+
+    <!-- CARD 5 — CONCEITO FUTURO -->
+    <div class="project-card fade-up delay-5" data-cat="em-breve mobile">
+      <div class="card-banner banner-future">
+        <span class="card-badge badge-concept">CONCEITO</span>
+        <div class="card-banner-icon">💡</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Tem uma ideia?</div>
+        <div class="card-desc">Aceito sugestões de projetos e colaborações. Se tiver uma ideia de app ou ferramenta que resolve um problema real, entra em contato.</div>
+        <div class="card-tags">
+          <span class="card-tag">Colaboração</span>
+          <span class="card-tag">Open Source</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="mailto:leosergio.583@gmail.com" class="btn-card btn-primary-card">
+          <i class='bx bx-envelope'></i> Entrar em contato
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="fade-up">
+    <p>Feito com 🧡 por <a href="https://leosergio.github.io/Projeto" target="_blank">Leandro Sérgio</a> · Código aberto no <a href="https://github.com/LeoSergio" target="_blank">GitHub</a></p>
+    <p style="font-size:0.75rem;color:var(--muted)">v2025 · Todos os projetos são gratuitos</p>
+  </footer>
+
+</div>
+
+<script>
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card => {
+    const cats = card.dataset.cat || '';
+    if (cat === 'todos' || cats.includes(cat)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
