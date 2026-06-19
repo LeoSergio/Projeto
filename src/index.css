@@ -20,4 +20,12 @@
   .border-accent { border-color: #81e6d9; }
   .skill-fill { animation: fillBar 0.8s ease both; }
   @keyframes fillBar { from { width: 0; } }
+
+  /* Esconde a barra de rolagem do menu superior no mobile,
+     mas mantém o scroll horizontal funcionando ao toque */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
