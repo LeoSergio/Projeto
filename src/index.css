@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-[#0a0a0f] text-[#e8e8f0] font-sans antialiased; }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .text-accent { color: #81e6d9; }
+  .border-accent { border-color: #81e6d9; }
+  .skill-fill { animation: fillBar 0.8s ease both; }
+  @keyframes fillBar { from { width: 0; } }
+}
